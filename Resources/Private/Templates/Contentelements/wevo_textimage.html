@@ -1,0 +1,38 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="b_ct_textWithImage b_has-marginTop {f:if(condition:'{data.layout} == 5',then:'hidden-xs')}">
+	<h4 class="b_t3 b_is-text-WevoCyan b_headline b_has-dividerTop">{data.header}</h4>
+	<div class="row">
+		<f:switch expression="{data.layout}">
+<f:comment>
+	<!--
+		addItems.1 = Text links, Bild rechts (klein)
+		addItems.2 = Text links, Bild rechts (groß)
+		addItems.3 = Text rechts, Bild links (klein)
+		addItems.4 = Text rechts, Bild links (groß)
+		addItems.5 = Bild oben, Text unten (Bild entfällt auf Mobile!)
+	-->
+</f:comment>
+			<f:case value="1">
+				<div class="col-lg-16 b_t5"><f:format.html>{data.bodytext}</f:format.html></div>
+				<div class="col-lg-8"><f:render partial="firstImage" section="firstImage" arguments="{images:'{thisimage}',width:'900',class:'img-responsive'}" /></div>
+			</f:case>
+			<f:case value="2">
+				<div class="col-lg-8 b_t5"><f:format.html>{data.bodytext}</f:format.html></div>
+				<div class="col-lg-16"><f:render partial="firstImage" section="firstImage" arguments="{images:'{thisimage}',width:'900',class:'img-responsive'}" /></div>
+			</f:case>
+			<f:case value="3">
+				<div class="col-lg-8"><f:render partial="firstImage" section="firstImage" arguments="{images:'{thisimage}',width:'900',class:'img-responsive'}" /></div>
+				<div class="col-lg-16 b_t5"><f:format.html>{data.bodytext}</f:format.html></div>
+			</f:case>
+			<f:case value="4">
+				<div class="col-lg-16"><f:render partial="firstImage" section="firstImage" arguments="{images:'{thisimage}',width:'900',class:'img-responsive'}" /></div>
+				<div class="col-lg-8 b_t5"><f:format.html>{data.bodytext}</f:format.html></div>
+			</f:case>
+			<f:case value="5">
+				<div class="col-lg-24"><f:render partial="firstImage" section="firstImage" arguments="{images:'{thisimage}', width:'1000',class:'img-responsive'}" /></div>
+				<div class="col-lg-16 b_m2 b_diagram-text"><f:format.html>{data.bodytext}</f:format.html></div>
+			</f:case>
+		</f:switch>
+	</div>
+</div>
+</html>

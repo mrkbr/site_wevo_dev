@@ -1,0 +1,63 @@
+.m_dropdown {
+
+	display: inline-block;
+
+	//Hide the outline on focus
+	input:focus,
+	select:focus,
+	textarea:focus,
+	button:focus {
+		outline: none;
+	}
+
+	ul, &-toggle {
+		background-color: #ffffff;
+		border: solid 1px #cccccc;
+	}
+
+	ul {
+		display: none;
+		position: absolute;
+		padding: 10px 0;
+		top: -1px;
+		min-width: 100%;
+		list-style: none;
+	}
+
+	li {
+		padding: 0px 20px;
+		cursor: pointer;
+		white-space: nowrap;
+
+		&.m_dropdown-placeholder {
+			display: none;
+		}
+	}
+
+	&-toggle:after {
+		content: "\25bc";
+		margin-left: 0.6em;
+		font-size: 0.8em;
+	}
+
+	&-menuWrap {
+		position: relative;
+		height: 0;
+	}
+
+	&-disabled {
+		color: #cccccc;
+
+		.m_dropdown-toggle {
+			background-color: #eeeeee;
+		}
+	}
+
+	&-open ul{
+		display: block;
+	}
+}
+
+select.m_dropdown-select {
+	display: none;
+}

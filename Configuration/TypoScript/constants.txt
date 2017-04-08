@@ -1,0 +1,72 @@
+# Dependencies:
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:gridelements/Configuration/TypoScript/constants.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:b13ce/Configuration/TypoScript/constants.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:solr/Configuration/TypoScript/Solr/constants.txt">
+
+
+plugin.tx_solr {
+	solr {
+		scheme = http
+		host = search2.production.b13.de
+		port = 8080
+		path = /solr/wevo_de/
+	}
+	search.results.resultsPerPage = 10
+}
+
+[globalVar = GP:L = 1]
+	plugin.tx_solr.solr.path = /solr/wevo_en/
+[global]
+
+
+
+plugin.tx_seo {
+	# cat=plugin.seo/string; type=string; label= Wrap around the <title> tag: Used for static additions to the title tag like the sitename. This is a no-trim-wrap string, fill in the static code between the vertical bars.
+	titleWrap = |||
+
+	# cat=plugin.seo/string; type=string; label= Wrap around the keywords meta tag: Used for static additions like site-wide keywords. This is a no-trim-wrap string, fill in the static code between the vertical bars.
+	keywordsWrap = |||
+
+	# cat=plugin.seo/string; type=string; label= Wrap around the description meta tag: Used for static additions like a site-wide description. This is a no-trim-wrap string, fill in the static code between the vertical bars.
+	descriptionWrap = |||
+
+	# cat=plugin.seo/string; type=boolean; label= Append the sitetitle to the <title> tag: Add the site title as defined in your sys_template, as another static keyword after the titleWrap. This extension only offers the site title to append instead of to prepend as it is more important to have page-specific data at the beginning of the title tag.
+	titleWrapAppendSiteTitle = 0
+
+	# cat=plugin.seo/string; type=boolean; label= Enable the canonical tag: Adds a new tag for showing the unique URL for this page.
+	enableCanonicalTag = 1
+}
+
+b13ce {
+	additionalLayoutRootPath =	  EXT:site_wevo/Resources/Private/Templates/Contentelements/Layouts
+	additionalPartialsRootPath =  EXT:site_wevo/Resources/Private/Templates/Contentelements/Partials
+	additionalTemplatesRootPath = EXT:site_wevo/Resources/Private/Templates/Contentelements
+}
+
+wevo {
+	templatePath = typo3conf/ext/site_wevo/
+	tsPath = typo3conf/ext/site_wevo/Resources/Private/TypoScript
+	scriptsPath =  typo3conf/ext/site_wevo/Resources/Public/JavaScript
+	stylePath = typo3conf/ext/site_wevo/Resources/Public/Css
+	imagePath = typo3conf/ext/site_wevo/Resources/Public/Assets
+	publicPath = typo3conf/ext/site_wevo/Resources/Public
+}
+
+wevo {
+	pages {
+		startpageUid = 1
+		marginalcolumnlinksUid = 34
+
+		# sitemap / footer
+		footercol-1 = 81,6,5
+		footercol-2 = 2,3
+		footercol-3 = 4
+
+		# imprint/contact menu
+		metamenu-1 = 25
+		metamenu-2 = 26
+		metamenu-3 = 83
+
+		searchresults = 77
+	}
+}

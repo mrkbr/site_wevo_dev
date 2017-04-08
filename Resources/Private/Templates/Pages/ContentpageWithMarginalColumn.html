@@ -1,0 +1,24 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="defaultLayout" />
+
+<f:section name="content">
+	<main class="b_ct_main">
+		<f:format.raw>{keyvisual}</f:format.raw>
+		<div class="container" id="bJS_main">
+			<div class="row">
+				<div class="col-md-17 col-lg-16 b_ct_contentColumn b_is-text-darkBlue">
+					<!--TYPO3SEARCH_begin-->
+					<f:format.raw>{content}</f:format.raw>
+					<!--TYPO3SEARCH_end-->
+				</div>
+				<div class="col-md-7 col-lg-6 col-lg-offset-2 b_ct-rightColumn">
+					<f:cObject typoscriptObjectPath="lib.getSisterPageMenu" />
+					<f:format.raw>{marginalcolumn}</f:format.raw>
+				</div>
+			</div>
+		</div>
+	</main>
+</f:section>
+
+</html>

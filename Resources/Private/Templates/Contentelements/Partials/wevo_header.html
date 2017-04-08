@@ -1,0 +1,61 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:switch expression="{f:cObject(typoscriptObjectPath: 'lib.getPagelayout')}">
+	<f:case value="pagets__ContentpageWhite"><f:render section="whitepage" arguments="{_all}" /></f:case>
+	<f:case value="pagets__Contentpage"><f:render section="graypage" arguments="{_all}" /></f:case>
+	<f:case value="pagets__ContentpageGray"><f:render section="graypage" arguments="{_all}" /></f:case>
+	<f:case value="pagets__ContentpageWithMarginalColumn"><f:render section="whitepageWithMarginalColumn" arguments="{_all}" /></f:case>
+	<f:case value="pagets__ContentpageWithMarginalColumn-noGlossary"><f:render section="whitepageWithMarginalColumn" arguments="{_all}" /></f:case>
+	<f:case default="1"><f:render section="default" arguments="{_all}" /></f:case>
+</f:switch>
+
+<f:section name="whitepageWithMarginalColumn">
+	<f:if condition="{data.header}"><h3 class="b_headline b_is-text-WevoCyan"><f:format.raw>{data.header}</f:format.raw></h3></f:if>
+	<f:if condition="{data.CType} == 'wevo_headerlead'">
+		<f:then>
+			<f:if condition="{data.bodytext}"><p class="b_t3 b_is-text-darkBlue b_nohyphens">{data.bodytext}</p></f:if>
+		</f:then>
+		<f:else>
+			<f:if condition="{data.subheader}"><p class="b_t3 b_is-text-darkBlue b_nohyphens">{data.subheader}</p></f:if>
+		</f:else>
+	</f:if>
+</f:section>
+
+<f:section name="whitepage">
+	<div class="row b_ct-headlineModule">
+		<div class="col-lg-16">
+			<f:render section="whitepageWithMarginalColumn" arguments="{_all}" />
+		</div>
+	</div>
+</f:section>
+
+<f:section name="graypage">
+	<f:render section="whitepage" arguments="{_all}" />
+</f:section>
+
+
+<f:section name="default">
+	<div class="row b_ct-headlineModule">
+		<div class="col-lg-16">
+			<f:if condition="{data.header}"><h3 class="b_headline"><f:format.raw>{data.header}</f:format.raw></h3></f:if>
+			<f:if condition="{data.CType} == 'wevo_headerlead'">
+				<f:then>
+					<f:if condition="{data.bodytext}">
+						<f:switch expression="{data.layout}">
+							<f:case value="1"><p class="b_t3 b_subline b_is-text-WevoSilver b_nohyphens">{data.bodytext}</p></f:case>
+							<f:case value="2"><p class="b_t3 b_subline b_is-text-WevoCyan b_nohyphens">{data.bodytext}</p></f:case>
+						</f:switch>
+					</f:if>
+				</f:then>
+				<f:else>
+					<f:if condition="{data.subheader}">
+						<f:switch expression="{data.layout}">
+							<f:case value="1"><p class="b_t3 b_subline b_is-text-WevoSilver b_nohyphens">{data.subheader}</p></f:case>
+							<f:case value="2"><p class="b_t3 b_subline b_is-text-WevoCyan b_nohyphens">{data.subheader}</p></f:case>
+						</f:switch>
+					</f:if>
+				</f:else>
+			</f:if>
+		</div>
+	</div>
+</f:section>
+</html>

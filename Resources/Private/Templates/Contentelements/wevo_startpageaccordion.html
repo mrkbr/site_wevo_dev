@@ -1,0 +1,14 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="FullrowContentelement" />
+
+<f:section name="contentelement">
+	<div id="bJS_videoAccordion" class="b_ct_video-accordion b_state-disableVideos bJS_playVideoInsideViewport">
+		<f:for each="{listitems}" as="item">
+			<f:render partial="startpageaccordion" arguments="{
+			color: '{item.data.layout}', icon: '{item.data.config}',  header: '{item.data.header}', title: '{item.data.subheader}',
+			link: '{item.data.link}', linklabel: '{item.data.linklabel}', images: '{item.listimage1}'}" />
+		</f:for>
+	</div>
+</f:section>
+</html>

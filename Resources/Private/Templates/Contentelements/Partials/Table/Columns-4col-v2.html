@@ -1,0 +1,128 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:comment>
+	<!-- this renders a table with 5 columns to a table with 4 columns, where the first column decides if the
+		 row is rendered as "style 1" (= meaning blue) or "style 2" (= meaning gray)
+	 -->
+</f:comment>
+
+<f:if condition="{columnIterator.isFirst}">
+	<f:comment><!-- first column is not actually a column at all, decides the color/styling of the row --></f:comment>
+	<f:then>
+		<f:switch expression="{cell}">
+			<f:case value="1">
+				<tr class="b_tr-1">
+			</f:case>
+			<f:case default="1">
+				<tr class="b_tr-0">
+			</f:case>
+		</f:switch>
+	</f:then>
+	<f:else>
+		<f:comment><!-- all other columns --></f:comment>
+
+		<f:if condition="{rowIterator.isFirst}">
+			<f:then>
+				<f:if condition="{data.table_header_position} == 1">
+					<f:then>
+						<th {f:render(section:'columnclass',arguments:'{_all}')}>
+					</f:then>
+					<f:else>
+						<f:if condition="{columnIterator.isFirst}">
+							<f:then>
+								<f:if condition="{data.table_header_position} == 2">
+									<f:then>
+										<th {f:render(section:'columnclass',arguments:'{_all}')}>
+									</f:then>
+									<f:else>
+										<td {f:render(section:'columnclass',arguments:'{_all}')}>
+									</f:else>
+								</f:if>
+							</f:then>
+							<f:else>
+								<td {f:render(section:'columnclass',arguments:'{_all}')}>
+							</f:else>
+						</f:if>
+					</f:else>
+				</f:if>
+			</f:then>
+			<f:else>
+				<f:if condition="{columnIterator.cycle} == 2">
+					<f:then>
+						<f:if condition="{data.table_header_position} == 2">
+							<f:then>
+								<th {f:render(section:'columnclass',arguments:'{_all}')}>
+							</f:then>
+							<f:else>
+								<td {f:render(section:'columnclass',arguments:'{_all}')}>
+							</f:else>
+						</f:if>
+					</f:then>
+					<f:else>
+						<td {f:render(section:'columnclass',arguments:'{_all}')}>
+					</f:else>
+				</f:if>
+			</f:else>
+		</f:if>
+
+		<f:format.nl2br>{cell}</f:format.nl2br>
+
+		<f:if condition="{rowIterator.isFirst}">
+			<f:then>
+				<f:if condition="{data.table_header_position} == 1">
+					<f:then>
+						</th>
+					</f:then>
+					<f:else>
+						<f:if condition="{columnIterator.cycle} == 2">
+							<f:then>
+								<f:if condition="{data.table_header_position} == 2">
+									<f:then>
+										</th>
+									</f:then>
+									<f:else>
+										</td>
+									</f:else>
+								</f:if>
+							</f:then>
+							<f:else>
+								</td>
+							</f:else>
+						</f:if>
+					</f:else>
+				</f:if>
+			</f:then>
+			<f:else>
+				<f:if condition="{columnIterator.cycle} == 2">
+					<f:then>
+						<f:if condition="{data.table_header_position} == 2">
+							<f:then>
+								</th>
+							</f:then>
+							<f:else>
+								</td>
+							</f:else>
+						</f:if>
+					</f:then>
+					<f:else>
+						</td>
+					</f:else>
+				</f:if>
+			</f:else>
+		</f:if>
+
+	</f:else>
+
+
+</f:if>
+
+
+<f:section name="columnclass">
+	<f:spaceless>
+		<f:if condition="{columnIterator.cycle} == 2">
+			<f:then>class="col-xs-12"</f:then>
+			<f:else>class="col-xs-4"</f:else>
+		</f:if>
+	</f:spaceless>
+</f:section>
+
+</html>

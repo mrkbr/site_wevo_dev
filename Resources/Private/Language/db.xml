@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>db</type>
+		<description>Language labels for database tables/fields belonging to extension 'site_wevo'</description>
+	</meta>
+	<data type="array">
+
+		<languageKey index="default" type="array">
+			<label index="header">Flagge</label>
+			<label index="subheader">Textgröße (z.B. 1 = Standard, 0.8 = 80%)</label>
+			<label index="subheader2">Hotspot-Platzierung (XY in Prozent ganzzahlig, z.B. 25,22)</label>
+			<label index="subheaderalt">Hotspot-2-Platzierung (XY-Angabe, optional)</label>
+			<label index="subheader2alt">Flaggen-Platzierung (XY in Prozent ganzzahlig, z.B. 25,22)</label>
+		</languageKey>
+
+	</data>
+</T3locallang>

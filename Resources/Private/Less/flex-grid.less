@@ -1,0 +1,53 @@
+// mixin for display:flex
+.mixin-display-flex() {
+	display: -webkit-flex;
+	display: flex;
+}
+.mixin-flex-wrap(@value) {
+	-webkit-flex-wrap: @value;
+	flex-wrap: @value;
+}
+.mixin-flex(@value) {
+	-webkit-flex: @value;
+	flex: @value;
+}
+
+
+// added by b13 for rows that make use of display:flex type of elements
+.row-flex {
+	.make-row(@grid-gutter-width);
+}
+
+
+@media (min-width: @screen-sm-min) {
+	.row-flex, .col-flex {
+		.mixin-display-flex;
+	}
+	.row-flex {
+		&:before, &:after {
+			display: block;
+		}
+	}
+	.col-flex {
+		flex-direction: row;
+		.mixin-flex-wrap(wrap)
+	}
+	.col-flex-bottom {
+		align-content: flex-end;
+	}
+	.b_is-flexTile {
+		.mixin-flex(1 100%);
+	}
+//		this is needed for cases where a slick carousel is placed inside of a flexTile to force the slider to have the correct width/height in Firefox and IE
+//		this is the html structure needed for this:
+//		<div class="col-flex">
+//			<div class="b_is-flexTile-sliderOuterWrap">
+//				<div class="b_teaser b_is-flexTile...">
+//					<div class="bJS_slider">
+	.b_is-flexTile-sliderOuterWrap {
+		width: 100%;
+		float: left;
+		position: relative;
+		padding: 0;
+	}
+}

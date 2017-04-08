@@ -1,0 +1,263 @@
+## DEPENDENCIES
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:b13ce/Configuration/TypoScript/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:seo_basics/Configuration/TypoScript/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:gridelements/Configuration/TypoScript/setup.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:solr/Configuration/TypoScript/Solr/setup.txt">
+
+# include our typoscript files
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:site_wevo/Configuration/TypoScript/Plugins" extensions="ts">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:site_wevo/Configuration/TypoScript/Lib" extensions="ts">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:site_wevo/Configuration/TypoScript/Ces" extensions="ts">
+
+/**
+* General website configuration
+* ----------------------------------------------------------------------------
+*/
+
+###	HTML5
+config {
+	disableImgBorderAttr = 1
+	htmlTag_stdWrap.dataWrap (
+		<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="{TSFE:config|config|htmlTag_langKey}"> <![endif]-->
+		<!--[if IE 7]> <html class="no-js ie7 oldie" lang="{TSFE:config|config|htmlTag_langKey}"> <![endif]-->
+		<!--[if IE 8]> <html class="no-js ie8 oldie" lang="{TSFE:config|config|htmlTag_langKey}"> <![endif]-->
+		<!--[if IE 9]> <html class="no-js ie9" lang="{TSFE:config|config|htmlTag_langKey}"> <![endif]-->
+		<!--[if gt IE 9]><!-->
+	|
+		<!--<![endif]-->
+	)
+}
+
+### Output
+config {
+	sendCacheHeaders = 1
+	removeDefaultCss = 1
+	removePageCss = 1
+	removeDefaultJS = 1
+	disablePrefixComment = 1
+}
+
+### language overlay behaviour
+config {
+	sys_language_mode = strict
+	sys_language_overlay = hideNonTranslated
+}
+
+### open external links in new window by default
+config.extTarget = _blank
+
+### solr
+config.index_enable = 1
+
+
+### default language setup
+config {
+	sys_language_uid = 0
+	sys_language_isocode_default = de
+	language = de
+	locale_all = de_DE.UTF-8
+}
+
+# english
+[globalVar = GP:L = 1]
+	config.language = en
+	config.locale_all = en_US.UTF-8
+	config.sys_language_uid = 1
+[global]
+
+# chinese
+[globalVar = GP:L = 2]
+	config.language = zh
+	config.locale_all = zh_CN.UTF-8
+	config.sys_language_uid = 2
+[global]
+
+### Prefix for real url
+config {
+	absRefPrefix = /
+	tx_realurl_enable = 1
+	linkVars = L
+}
+
+/**
+* the main page object
+* ----------------------------------------------------------------------------
+*/
+page = PAGE
+page {
+
+	meta.X-UA-Compatible = IE=edge,chrome=1
+	meta.viewport = width=device-width, user-scalable=no, initial-scale=1.0
+
+	includeCSS.main = {$wevo.publicPath}/Css/main.css
+
+	includeJS.mk1 = fileadmin/_mk7_template/js/jquery-2.2.4.min.js
+	includeJS.mk2 = fileadmin/_mk7_template/js/mk7plugins.js
+	includeJS.mk3 = fileadmin/_mk7_template/js/mk7.js
+	includeJS.file1 = {$wevo.publicPath}/JavaScript/swiffyRuntime.js
+	includeJS.main = {$wevo.publicPath}/JavaScript/main.js
+
+	headerData.90 = TEXT
+	headerData.90.value (
+<link rel="apple-touch-icon" sizes="57x57" href="/typo3conf/ext/site_wevo/Resources/Public/Assets/Favicon/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/typo3conf/ext/site_wevo/Resources/Public/Assets/Favicon/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/typo3conf/ext/site_wevo/Resources/Public/Assets/Favicon/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/typo3conf/ext/site_wevo/Resources/Public/Assets/Favicon/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/typo3conf/ext/site_wevo/Resources/Public/Assets/Favicon/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/typo3conf/ext/site_wevo/Resources/Public/Assets/Favicon/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/typo3conf/ext/site_wevo/Resources/Public/Assets/Favicon/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/typo3conf/ext/site_wevo/Resources/Public/Assets/Favicon/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/typo3conf/ext/site_wevo/Resources/Public/Assets/Favicon/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/typo3conf/ext/site_wevo/Resources/Public/Assets/Favicon/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/typo3conf/ext/site_wevo/Resources/Public/Assets/Favicon/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/typo3conf/ext/site_wevo/Resources/Public/Assets/Favicon/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/typo3conf/ext/site_wevo/Resources/Public/Assets/Favicon/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/typo3conf/ext/site_wevo/Resources/Public/Assets/Favicon/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/typo3conf/ext/site_wevo/Resources/Public/Assets/Favicon/manifest.json">
+<link rel="mask-icon" href="/typo3conf/ext/site_wevo/Resources/Public/Assets/Favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/typo3conf/ext/site_wevo/Resources/Public/Assets/Favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/typo3conf/ext/site_wevo/Resources/Public/Assets/Favicon/mstile-144x144.png">
+<meta name="msapplication-config" content="/typo3conf/ext/site_wevo/Resources/Public/Assets/Favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+)
+	headerData.100 = TEXT
+	headerData.100.value (
+<!-- Copyright (c) 2000-2015 etracker GmbH. All rights reserved. -->
+<!-- This material may not be reproduced, displayed, modified or distributed -->
+<!-- without the express prior written permission of the copyright holder. -->
+<!-- etracker tracklet 4.0 -->
+<script type="text/javascript">
+var et_easy = 1;
+var et_se = 2;
+</script>
+<script id="_etLoader" type="text/javascript" charset="UTF-8" data-secure-code="54sIBV" src="//static.etracker.com/code/e.js"></script>
+<noscript><link rel="stylesheet" media="all" href="//www.etracker.de/cnt_css.php?et=54sIBV&amp;v=4.0&amp;java=n&amp;et_easy=1&amp;et_pagename=&amp;et_areas=&amp;et_ilevel=0&amp;et_target=,0,0,0&amp;et_lpage=0&amp;et_trig=0&amp;et_se=2&amp;et_cust=0&amp;et_basket=&amp;et_url=&amp;et_tag=&amp;et_sub=&amp;et_organisation=&amp;et_demographic=" /></noscript>
+<!-- etracker tracklet 4.0 end -->
+	)
+
+	bodyTagCObject = COA
+	bodyTagCObject {
+		10 = CASE
+		10 {
+			key.data = pagelayout
+
+			pagets__Startpage = TEXT
+			pagets__Startpage.value = b_startpage
+
+			pagets__ContentpageWithMarginalColumn = TEXT
+			pagets__ContentpageWithMarginalColumn.value = b_contentPageWithRightColumn
+
+			pagets__ContentpageWithMarginalColumn-noGlossary = TEXT
+			pagets__ContentpageWithMarginalColumn.value = b_contentPageWithRightColumn
+
+			pagets__Contentpage = TEXT
+			pagets__Contentpage.value = b_lightGrayPage b_darkNavbar
+
+			pagets__ContentpageDarkgray = TEXT
+			pagets__ContentpageDarkgray.value = b_grayPage b_darkNavbar
+
+			pagets__ContentpageDarkgrayLightheader = TEXT
+			pagets__ContentpageDarkgrayLightheader.value = b_grayPage
+
+	#		pagets__Careerpage = TEXT
+	#		pagets__Careerpage.value =
+
+	#		pagets__ContentpageWhite = TEXT
+	#		pagets__ContentpageWhite.value =
+
+			pagets__ContentpageGray = TEXT
+			pagets__ContentpageGray.value = b_grayPage-3
+
+			pagets__ContentpageDark = TEXT
+			pagets__ContentpageDark.value = b_darkPage
+
+			stdWrap.noTrimWrap = || |
+		}
+		20 = CASE
+		20 {
+			key.field = layout
+			1 = TEXT
+			1.value = b_noprint
+		}
+
+		stdWrap.wrap = <body class="|" id="b_page-{field:uid}">
+		stdWrap.insertData = 1
+	}
+
+	5 = LOAD_REGISTER
+	5 {
+		// set the contact email and label if needed for pages with marginalcolumn
+		contactemail = TEXT
+		contactemail.data = levelfield:-1,wevo_link,slide
+
+		contactemaillabel = TEXT
+		contactemaillabel.data = levelfield:-1,wevo_linktext,slide
+	}
+
+	10 = CASE
+	10 {
+		key.data = pagelayout
+
+		default = FLUIDTEMPLATE
+		default {
+			templateName = TEXT
+			templateName.data = pagelayout
+			templateName.stdWrap.replacement {
+				10.search = pagets__
+				10.replace =
+			}
+
+			templateRootPaths.10 = EXT:site_wevo/Resources/Private/Templates/Pages
+			layoutRootPaths.10   = EXT:site_wevo/Resources/Private/Templates/Pages/Layouts
+			partialRootPaths.10  = EXT:site_wevo/Resources/Private/Templates/Pages/Partials
+
+			variables {
+				backendlayout = TEXT
+				backendlayout.data = pagelayout
+
+				content = CONTENT
+				content.table = tt_content
+				content.select.orderBy = sorting
+				content.select.where = colPos = 0
+
+				marginalcolumn < .content
+				marginalcolumn.select.where = colPos = 1
+				marginalcolumn.slide = -1
+
+				marginalcolumn-noGlossary < .content
+				marginalcolumn-noGlossary.select.where = colPos = 1
+				marginalcolumn-noGlossary.renderObj = < tt_content
+				marginalcolumn-noGlossary.renderObj {
+					wevo_glossarylist < lib.fluidContent
+					wevo_glossarylist.templateName = wevo_glossarylist-alternative
+				}
+				marginalcolumn-noGlossary.slide = -1
+
+
+				keyvisual < .content
+				keyvisual.select.where = colPos = 2
+
+				colPos3 < .content
+				colPos3.select.where = colPos = 3
+
+				colPos4 < .content
+				colPos4.select.where = colPos = 4
+
+				colPos5 < .content
+				colPos5.select.where = colPos = 5
+
+			}
+
+		}
+
+	}
+}
+
+# disable header code for ajax calles
+[globalVar = GP:ajax=1]
+	page.config {
+		disableAllHeaderCode = 1
+		xhtml_cleaning = 0
+	}
+[global]

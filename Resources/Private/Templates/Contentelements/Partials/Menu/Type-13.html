@@ -1,0 +1,38 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:comment>
+	<!--
+		Menu for Accordion including subpages
+	-->
+</f:comment>
+</div></div></div></div>
+	<ce:menu.directory pageUids="{pageUids}" as="pages" levelAs="level">
+		<f:if condition="{pages}">
+			<div class="b_ct-subpageAccordionModule">
+				<div class="b_is-btnList b_is-btnList-withGradient b_is-btnList-withLightBackgroundHover" id="bJS_accordionAjaxContainer" role="tablist">
+
+					<f:for each="{pages}" as="page" iteration="counter">
+						<div class="b_item">
+							<div class="container"><div class="row"><div class="col-xs-24">
+								<a href="#bJS_subpage-{page.uid}" class="b_t4 b_btn collapsed b_hideForMobileBrowser bJS_loadContentViaAjax"
+								   data-toggle="collapse" aria-expanded="false" aria-controls="bJS_subpage-{page.uid}" data-parent="#bJS_accordion-{data.uid}">
+									<i class="b_icon c_rotateIconIfOpened b_icon-DropdownOhneKreis_L"></i>
+									{f:if(condition:'{page.nav_title}',then:'{page.nav_title}',else:'{page.title}')}
+								</a>
+								<f:link.typolink parameter="{page.uid}" class="b_t4 b_btn collapsed b_showForMobileBrowser" additionalAttributes="{data-parent: '#bJS_accordion-{data.uid}'}">
+									<i class="b_icon b_icon-DropdownOhneKreis_L"></i>
+									{f:if(condition:'{page.nav_title}',then:'{page.nav_title}',else:'{page.title}')}
+								</f:link.typolink>
+							</div></div></div>
+							<div id="bJS_subpage-{page.uid}" class="b_ct-subpage collapse" data-contenturl="{f:uri.page(pageUid:'{page.uid}',absolute:'1')}" role="tabpanel" aria-labelledby="bJS_subpageheader-{page.uid}">
+								<!-- start subpage content -->
+								<!-- end subpage content -->
+							</div>
+						</div>
+					</f:for>
+
+				</div>
+			</div>
+		</f:if>
+	</ce:menu.directory>
+<div><div class="container"><div class="row"><div class="col-xs-24">
+</html>

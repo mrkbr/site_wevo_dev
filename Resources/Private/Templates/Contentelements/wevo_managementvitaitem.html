@@ -1,0 +1,52 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="row b_ct_textWithImage b_ct-managementVitaItem">
+	<div class="col-lg-10">
+		<f:if condition="{data.header}">
+			<h4 class="b_t3 b_is-text-cyan">{data.header}</h4>
+		</f:if>
+		<f:if condition="{data.wevo_bodytext2}">
+			<dl class="b_t5 b_dl-dots">
+				<f:for each="{table}" as="row">
+					<f:for each="{row}" as="column" iteration="i">
+						<f:if condition="{i.isFirst}">
+							<f:then>
+								<dt>{column}</dt>
+							</f:then>
+							<f:else>
+								<dd>{column}</dd>
+							</f:else>
+						</f:if>
+					</f:for>
+				</f:for>
+			</dl>
+		</f:if>
+	</div>
+	<div class="col-lg-13 col-lg-push-1">
+		<f:if condition="{thisimage}">
+			<f:for each="{thisimage}" as="file" iteration="itemIteration">
+				<f:if condition="{itemIteration.isFirst}">
+					<f:image src="{file.uid}" treatIdAsReference="1" width="940c" height="627c" class="img-responsive" />
+				</f:if>
+			</f:for>
+		</f:if>
+		<f:if condition="{data.bodytext}">
+			<a class="b_text-accordion-item-header collapsed" role="button" data-toggle="collapse" href="#bJS_accordion{data.uid}" aria-expanded="false" aria-controls="bJS_accordion{data.uid}">
+				<i class="b_icon c_status"></i>
+				<span class="b_t5 text-uppercase">
+					<f:if condition="{data.wevo_additionaltext1}">
+						<f:then>
+							{data.wevo_additionaltext1}
+						</f:then>
+						<f:else>
+							<f:translate key="LLL:EXT:site_wevo/Resources/Private/Language/locallang.xml:detail" />
+						</f:else>
+					</f:if>
+				</span>
+			</a>
+			<div class="collapse b_text-accordion-item-content" id="bJS_accordion{data.uid}">
+				<p class="b_t5"><f:format.nl2br>{data.bodytext}</f:format.nl2br></p>
+			</div>
+		</f:if>
+	</div>
+</div>
+</html>

@@ -1,0 +1,450 @@
+//
+// Globals LESS
+// --------------------------------------------------
+
+
+// Mixins
+// -------------------------
+
+.border-image(@direction, @start, @end) {
+	-webkit-border-image: -webkit-linear-gradient(@direction, @start, @end) 1 1 1 1;
+	-moz-border-image: -moz-linear-gradient(@direction, @start, @end) 1 1 1 1;
+	-o-border-image: -o-linear-gradient(@direction, @start, @end) 1 1 1 1;
+	border-image: linear-gradient(@direction, @start, @end) 1 1 1 1;
+}
+
+// svg dot
+// used as news divider and slider progress bar border
+.dots(@color: #fff) {
+	@clr: escape(~"@{color}");
+	background-image: url("data:image/svg+xml;utf8,<svg version='1.1' id='' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='6px' height='2px' viewBox='0 0 6 2' enable-background='new 0 0 6 2' xml:space='preserve'><path d='M0,1c0-0.55,0.44-1,1-1l0,0c0.55,0,1,0.45,1,1l0,0c0,0.55-0.45,1-1,1l0,0C0.44,2,0,1.55,0,1z' fill='@{clr}'></path></svg>");
+}
+
+// general stuff
+// -------------------------
+
+html {
+	overflow-y: scroll
+}
+
+body,
+.container {
+	min-width: 32px;
+}
+
+// light gray page
+body.b_lightGrayPage {
+	background: @wevo-gray-light;
+	color: @wevo-gray-2;
+}
+
+// light gray page with wevo gray 03
+body.b_grayPage-3 {
+	background: @wevo-gray-3;
+	color: #000;
+}
+
+// gray page
+body.b_grayPage {
+	background: @wevo-gray-7;
+	color: #fff;
+		// Subpages can be displayed inside a Tab or Accordion menu
+	.b_ct-subpage {
+		background: #FFF none repeat scroll 0% 0%;
+		color: #333;
+		// remove margin-top from next b_is-btnListWithGradient > b_item if this is open
+		margin-bottom: -4px;
+		&.in {
+			overflow: hidden;
+			padding-bottom: 60px;
+			@media (min-width: @screen-md-min) {
+				padding-bottom: 120px;
+			}
+		}
+	}
+}
+
+// content page with right column
+body.b_contentPageWithRightColumn,
+// WEVOSD-66
+body .b_ct-subpage {
+	@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+		.b_t3 {
+			font-size: 30px;
+			line-height: 38px;
+			font-family: 'wevoUltraLight';
+		}
+		.b_t5 {
+			font-size: 18px;
+			line-height: 26px;
+		}
+		.b_headline + * {
+			margin-top: 30px;
+		}
+	}
+}
+
+// dark page
+body.b_darkPage {
+	background-color: #000;
+	color: #fff;
+}
+
+a:focus {
+	outline: none;
+}
+
+a {
+	.transition(@defaultLinkTransition);
+}
+
+	// set header height as margin top for main area
+	// because header is position fixed
+main.b_ct_main {
+	margin-top: @header-height;
+	body.b_startpage & {
+		margin-top: 0;
+	}
+}
+
+
+	// hide items for mobile browser
+.b_hideForMobileBrowser {
+	html.b_state-mobile & {
+		display: none;
+	}
+}
+.b_showForMobileBrowser {
+	html.b_state-mobile & {
+		display: block;
+	}
+	html.b_state-no-mobile & {
+		display: none;
+	}
+}
+
+// make sure the :before property has the icon font class name
+.b_icon:before {
+	font-family:"b_icon"!important;
+}
+
+
+// rotate icon if item is collapsed
+a[data-toggle="collapse"] .c_rotateIconIfOpened {
+	.transition(transform 300ms);
+}
+a[data-toggle="collapse"]:not(.collapsed) .c_rotateIconIfOpened {
+	.rotate(90deg);
+}
+
+// set easing for collapsing
+.collapsing {
+	.transition-timing-function(ease-out);
+}
+
+
+// buttons
+// TODO / BTD: setup button with border radius or without border radius and with gradient
+// -------------------------
+
+.btn {
+	width: 160px;
+	height: 36px;
+	font-size: 14px;
+	@media (min-width: @screen-md) {
+		width: 200px;
+		height: 46px;
+		font-size: 18px;
+	}
+	font-family: @font-family-wevo-light;
+	text-transform: uppercase;
+	background: none;
+	&:hover {
+		html.b_no-touch & {
+			color: @wevo-cyan;
+		}
+	}
+}
+.btn-white {
+	border-color: #fff;
+	color: #fff;
+	@media (min-width: @screen-md) {
+		line-height: 2em;
+	}
+	.transition(@whiteBtnTransition);
+	&:hover,
+	&:active,
+	&:focus {
+		border: 1px solid @wevo-cyan;
+		color: @wevo-cyan;
+	}
+}
+// see WEVOSD-122
+.btn:active {
+	box-shadow: none;
+}
+
+
+
+// Modifier class for 16:7 aspect ratio
+.embed-responsive-16by7 {
+  padding-bottom: 43.75%;
+}
+
+// Modifier class for 4:3 aspect ratio
+.embed-responsive-3by2 {
+  padding-bottom: 66.66%;
+}
+
+// icon list
+// -------------------------
+.b_ct-iconList {
+	.b_listItem {
+		height: 172px;
+		@media (min-width: @screen-md) {
+			height: 220px;
+		}
+		@media (min-width: @screen-lg) {
+			height: 245px;
+		}
+		display: block;
+		&:hover canvas {
+			cursor: pointer;
+		}
+	}
+	.b_icon {
+		margin-bottom: 10px;
+		font-size: 60px;
+		@media (min-width: @screen-lg) {
+			font-size: 100px;
+		}
+	}
+		// 2 columns
+		// icon left description right
+	&.b_iconListWithDescription {
+		.b_listItem {
+			height: auto;
+			+ .b_listItem {
+				margin-top: 40px;
+				@media (min-width: @screen-md) {
+					margin-top: 130px;
+				}
+				@media (min-width: @screen-lg) {
+					margin-top: 135px;
+				}
+			}
+		}
+		.b_icon {
+			margin-bottom: 0;
+			font-size: 80px;
+			@media (min-width: @screen-md) {
+				font-size: 144px;
+			}
+		}
+	}
+}
+
+
+// Pagination
+// default: vertical pagination
+// -------------------------
+.b_pagination {
+
+		// pagination icon
+	i {
+		display: block;
+		.square(14px);
+		border: 1px solid #fff;
+		background: transparent;
+		.border-top-radius(50%);
+		.border-bottom-radius(50%);
+		.transition(250ms);
+		font-size: 16px;
+	}
+
+		// hover and active state
+	a:hover i {
+		html.b_no-touch & {
+			background-color: @wevo-cyan;
+			border-color: transparent;
+		}
+	}
+	.slick-active i,
+	.b_state-active i {
+		background-color: @wevo-cyan;
+		border-color: transparent;
+	}
+
+		// add default spacing (vertical pagination)
+	li + li {
+		margin-top: 22px;
+	}
+
+		// horizontal pagination
+	&.b_paginationHorizontal {
+		li {
+			display: inline-block;
+
+			+ li {
+				margin-top: 0;
+				margin-right: 22px;
+			}
+		}
+	}
+}
+
+
+// Center and Icon horizontal and vertical as overlay
+// -------------------------
+.b_ct-centeredIconOverlay {
+	position: relative;
+	i.b_icon {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 50;
+		font-size: 120px;
+		margin-left: -60px;
+		margin-top: -60px;
+	}
+}
+
+
+// Content Column
+// used for BE Layouts "content with right column"
+// -------------------------
+.b_ct_contentColumn {
+	padding-top: 25px;
+	@media (min-width: @screen-md) {
+		padding-top: 50px;
+	}
+	@media (min-width: @screen-lg) {
+		padding-top: 85px;
+	}
+	> *:first-child {
+		margin-top: 0;
+	}
+
+	h3 + p {
+		margin-top: 25px;
+		@media (min-width: @screen-md) {
+			margin-top: 45px;
+		}
+	}
+	.b_has-marginTop {
+		margin-top: 35px;
+		@media (min-width: @screen-md) {
+			margin-top: 75px;
+		}
+	}
+	.b_has-dividerTop {
+		padding-top: 15px;
+	}
+	.b_headline + * {
+		margin-top: 10px;
+		@media (min-width: @screen-md) {
+			margin-top: 30px;
+		}
+	}
+}
+
+
+// Right Column
+// used for BE Layouts "content with right column"
+// -------------------------
+.b_ct-rightColumn {
+	color: @wevo-gray-7;
+	padding-top: 25px;
+	@media (min-width: @screen-md) {
+		padding-top: 50px;
+	}
+	@media (min-width: @screen-lg) {
+		padding-top: 85px;
+	}
+
+	.b_item {
+		margin-top: 45px;
+		&:first-child {
+			margin-top: 0;
+			.b_headline {
+				margin-top: 5px;
+			}
+		}
+	}
+
+	.b_headline + * {
+		margin-top: 15px;
+	}
+	
+	.b_headline + p {
+		margin-top: 12px;
+	}
+
+	p {
+		color: @wevo-gray-2;
+	}
+
+	.c_btnVertical {
+		line-height: 38px;
+		padding-top: 2px;
+	}
+}
+
+
+// Pagination
+// adjust Bootstrap default pagination
+// -------------------------
+.pagination > li > a,
+.pagination > li > span {
+	padding: 3px 6px;
+	&[aria-label="Previous"] {
+		padding-right: 22px;
+	}
+	&[aria-label="Next"] {
+		padding-left: 22px;
+	}
+}
+
+// Grid
+// remove min-height for grid column xs-24
+// this is needed on the startpage for the fullscreen container stuff
+// -------------------------
+.col-xs-24 {
+	min-height: 0;
+}
+
+
+//
+// Animate item
+// --------------------------------------------------
+.b_animate {
+	opacity: 0;
+	transition: opacity 0.44s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.11s, transform 0.44s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.11s, @defaultLinkTransition;
+	transform: translate3d(0px, 40px, 0px);
+
+	.b_state-toggleItemAnimation & {
+		opacity: 1;
+		transform: translate3d(0px, 0px, 0px);
+	}
+	.b_state-toggleItemAnimation-finish & {
+		transition-delay: 0ms;
+	}
+}
+
+[data-transition-delay="1"]  { transition-delay:  50ms; }
+[data-transition-delay="2"]  { transition-delay: 100ms; }
+[data-transition-delay="3"]  { transition-delay: 150ms; }
+[data-transition-delay="4"]  { transition-delay: 200ms; }
+[data-transition-delay="5"]  { transition-delay: 250ms; }
+[data-transition-delay="6"]  { transition-delay: 300ms; }
+[data-transition-delay="7"]  { transition-delay: 350ms; }
+[data-transition-delay="8"]  { transition-delay: 400ms; }
+[data-transition-delay="9"]  { transition-delay: 450ms; }
+[data-transition-delay="10"] { transition-delay: 500ms; }
+
+
+// hide videos
+// this is used to show videos only if they are inside the viewport
+.b_state-disableVideos iframe[id^="bJS_vimeoItem"] {
+	display: none!important;
+}

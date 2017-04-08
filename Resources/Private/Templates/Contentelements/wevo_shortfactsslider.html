@@ -1,0 +1,25 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="bJS_shortFactsSlider b_shortFactsSlider b_has-defaultModulePadding">
+	<h2>{data.header}</h2>
+	<div class="bJS_facts text-center">
+		<f:for each="{listitems}" as="item" iteration="itemIteration">
+			<div class="b_item b_is-wevoUltraLight">
+				<p id="bJS_factItem-{itemIteration.cycle}" class="bJS_countUp b_bigNumber" data-animationtarget="{item.data.header}">&nbsp;</p>
+				<p class="b_factDescription b_t2"><f:format.raw>{item.data.subheader}</f:format.raw></p>
+			</div>
+		</f:for>
+	</div>
+	<div class="bJS_preview hidden-xs b_ct_preview text-center">
+		<f:for each="{listitems}" as="item" iteration="itemIteration">
+			<div class="b_item">
+				<p class="b_t5">{item.data.header}</p>
+				<div class="progress b_progressDark">
+					<div class="bJS_progressbar progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+						<span class="sr-only">0% Complete</span>
+					</div>
+				</div>
+			</div>
+		</f:for>
+	</div>
+</div>
+</html>

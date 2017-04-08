@@ -1,0 +1,144 @@
+//
+// Footer
+// --------------------------------------------------
+
+.b_ct_footer {
+	color: #000;
+	margin-top: 100px;
+	padding-bottom: 50px;
+	@media (min-width: @screen-lg) {
+		margin-top: 200px;
+		padding-bottom: 25px;
+	}
+
+		// set link color
+	a,
+	p,
+	li,
+	span {
+		color: @wevo-gray-2;
+		font-size: 12px;
+		@media (min-width: @screen-sm) {
+			font-size: 16px;
+			// WEVOSD-65
+			line-height: 24px;
+		}
+		line-height: 18px;
+		@media (min-width: @screen-md) {
+			line-height: 22px;
+		}
+		font-family: @font-family-wevo-light;
+	}
+	p.c_is-contact {
+		margin-top: 13px;
+	}
+	a.b_is-text-WevoCyan {
+		color: @wevo-cyan;
+	}
+
+	.b_icon {
+		font-size: 12px;
+		margin-top: -2px;
+	}
+
+	a:hover {
+		color: @wevo-cyan;
+	}
+
+		// active state for collapsible items
+	a[data-toggle="collapse"]:not(.collapsed) {
+		color: @wevo-cyan;
+	}
+
+		// highlight first item
+	li:first-child {
+		text-transform: uppercase;
+		a,
+		span {
+			color: #000;
+		}
+		+ li {
+			margin-top: 13px;
+		}
+	}
+
+	.b_darkPage & {
+		li:first-child a,
+		li:first-child span {
+			color: @wevo-gray-1;
+		}
+		a .b_icon,
+		span .b_icon {
+			color: #8D8D89;
+		}
+	}
+
+
+		// add margin-top for pages
+	ul + ul {
+		margin-top: 34px;
+	}
+	.col-xs-12:nth-child(3),
+	.col-xs-24:nth-child(2) {
+		@media (max-width: @screen-xs-max) {
+			margin-top: 44px;
+		}
+	}
+
+		// add margins for accordion
+	.collapse,
+	.collapsing {
+		> *:first-child {
+			margin-top: 13px;
+		}
+		> *:last-child {
+			margin-bottom: 40px;
+		}
+		line-height: 23px;
+	}
+	.collapse.in,
+	.collapsing {
+		// see WEVOSD-45
+		//		margin-top: 1em;
+		margin-bottom: 1em;
+	}
+
+	.b_footer-contentPageCollapsible {
+		a {
+			color: @wevo-cyan;
+		}
+	}
+
+
+		// add margin top for contact and imprint row
+	.b_has-dividerTop + .b_has-dividerTop {
+		margin-top: 25px;
+		@media (min-width: @screen-sm) {
+			margin-top: 75px;
+			padding-top: 45px;
+		}
+	}
+
+		// styling for gray footer
+	&.b_grayFooter {
+		background: @wevo-gray-7;
+		color: @wevo-silver;
+		a,
+		p,
+		span {
+			color: @wevo-gray-1;
+		}
+		a:hover {
+			color: @wevo-cyan;
+		}
+		li:first-child a,
+		li:first-child span {
+			color: @wevo-silver;
+		}
+
+		.b_has-dividerTop {
+			border-top-color: @wevo-gray-2;
+
+		}
+	}
+}

@@ -1,0 +1,44 @@
+{
+  "name": "hasFlash",
+  "description": "Small piece of code to detect if a browser is able tu use flash.",
+  "homepage": "https://github.com/b13/hasFlash.git",
+  "keywords": [
+    "flash",
+    "detection",
+    "has",
+    "javascript"
+  ],
+  "main": [
+    "dist/hasFlash.min.js",
+    "dist/hasFlash.min.css"
+  ],
+  "version": "1.0.0",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Benjamin Gröner",
+      "email": "groener@b13.de"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/b13/hasFlash.git"
+  },
+  "dependencies": {},
+  "ignore": [
+    "./Gruntfile.js",
+    "package.json"
+  ],
+  "devDependencies": {
+    "requirejs": "~2.1.15"
+  },
+  "_release": "1.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.0",
+    "commit": "c36de48b768cece4922ce60be4b5d34fb66df797"
+  },
+  "_source": "https://github.com/b13/hasFlash.git",
+  "_target": "~1.0.0",
+  "_originalSource": "hasFlash"
+}

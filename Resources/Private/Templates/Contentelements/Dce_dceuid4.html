@@ -1,0 +1,27 @@
+{namespace dce=ArminVieweg\Dce\ViewHelpers}
+<f:layout name="None" />
+
+<f:section name="main">
+	<section class="zeitstrahl">
+		<div class="jahre">
+			<ul>
+				<f:for each="{field.zeitstrahl}" as="eintrag">
+					<li>{eintrag.jahr}</li>
+				</f:for>
+			</ul>
+		</div>
+		<div class="inhalt">
+			<f:for each="{field.zeitstrahl}" as="eintrag">
+				<div class="jahr">{eintrag.jahr}</div>
+				<div class="ereignisse">
+					<div class="ereigniss">{eintrag.ereignis1}</div>
+					<f:if condition="{eintrag.ereignis2}">
+						<f:then>
+							<div class="ereigniss">{eintrag.ereignis1}</div>
+						</f:then>
+					</f:if>
+				</div>
+			</f:for>
+		</div>
+	</section>
+</f:section>

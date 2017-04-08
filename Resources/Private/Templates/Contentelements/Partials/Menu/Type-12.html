@@ -1,0 +1,26 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers" data-namespace-typo3-fluid="true">
+<ce:menu.directory pageUids="{0:2}" as="pages" levelAs="level">
+	<f:if condition="{pages}">
+		<div class="b_ct-subpageTeaser b_ct-subpageTeaser-threeItemsPerRow ">
+			<p class="b_t5 b_is-text-cyan text-uppercase b_moduleHeadline">{data.header}</p>
+			<div class="row">
+				<f:for each="{pages}" as="page" iteration="counter">
+					<f:if condition="{0:data.pid} == {0:page.uid}"><f:then></f:then><f:else>
+						<div class="col-sm-8">
+							<f:link.page pageUid="{page.uid}" class="b_is-whiteLink b_teaserLink">
+								<p class="b_t3">{page.title}</p>
+								<span class="b_imageWrap b_ct-centeredIconOverlay">
+									<f:cObject typoscriptObjectPath="lib.getMediaForPage"
+											   data="{uid:'{page.uid}', height:'315c', width:'560c', alt:'{page.title}', class: 'img-responsive b_is-fullWidth'}" />
+									<i class="b_icon b_icon-Play_L"></i>
+								</span>
+							</f:link.page>
+							<f:render partial="Menu/Type-11-Sub" arguments="{pageUids: {0: page.uid}}" />
+						</div>
+					</f:else></f:if>
+				</f:for>
+			</div>
+		</div>
+	</f:if>
+</ce:menu.directory>
+</html>

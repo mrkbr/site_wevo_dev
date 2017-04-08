@@ -1,0 +1,44 @@
+.b_ct-managementLeadModule {
+	margin-top: 65px;
+	@media (min-width: @screen-lg-min) {
+		margin-top: 90px;
+	}
+}
+
+.b_ct-managementDividerModule p {
+	border-top: 1px solid @wevo-gray-light;
+	padding-top: 20px;
+	padding-bottom: 40px;
+}
+
+.b_ct-managementVitaItem {
+	margin-bottom: 85px;
+	margin-top: 45px;
+	@media (min-width: @screen-lg-min) {
+		margin-top: 70px;
+	}
+	&.b_ct_textWithImage h4 {
+		margin-top: -8px;
+		margin-bottom: 1em;
+	}
+	ul li:before {
+		background-color: @wevo-gray-2;
+	}
+	ul,
+	p {
+		color: @wevo-gray-2;
+	}
+	img {
+		margin-bottom: 18px;
+		@media (max-width: @screen-md-max) {
+			margin-top: 3em;
+		}
+	}
+}
+
+.b_ct-managementDividerModule + .b_ct-managementVitaItem {
+	margin-top: 0;
+}
+.b_ct-managementVitaItem + .b_ct-managementDividerModule {
+	margin-top: 83px;
+}

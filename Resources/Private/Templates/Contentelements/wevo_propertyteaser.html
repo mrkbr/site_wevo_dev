@@ -1,0 +1,85 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:comment>
+	<!--
+		addItems.1 = Bildteaser
+		addItems.2 = Textteaser groß, hellgrau (nicht verlinkt)
+		addItems.3 = Textteaser groß, dunkelgrau (nicht verlinkt)
+		addItems.4 = Textteaser groß, gelb (nicht verlinkt)
+		addItems.5 = Textteaser groß, dunkelblau (nicht verlinkt)
+		addItems.6 = Textteaser klein, hellgrau
+		addItems.7 = Textteaser klein, dunkelgrau
+		addItems.8 = Textteaser klein, gelb
+		addItems.9 = Textteaser klein, dunkelblau
+		addItems.10 = Farbfläche hellgrau
+		addItems.11 = Farbfläche dunkelgrau
+		addItems.12 = Farbfläche gelb
+		addItems.13 = Farbfläche dunkelblau
+
+	-->
+</f:comment>
+<f:comment>
+	<!-- see #WEVOSD-67, remove the teaser from xs if no headline -->
+</f:comment>
+<div class="col-md-12 {f:if(condition:'{data.header}',else:'hidden-xs')}">
+	<div class="c_item
+		<f:switch expression="{data.layout}">
+			<f:case value="1">bJS_item c_withLink</f:case>
+			<f:case value="2">c_background-lightGray</f:case>
+			<f:case value="3">c_background-darkGray</f:case>
+			<f:case value="4">c_background-yellow</f:case>
+			<f:case value="5">c_background-darkBlue</f:case>
+			<f:case value="6">bJS_item c_background-lightGray</f:case>
+			<f:case value="7">bJS_item c_background-darkGray</f:case>
+			<f:case value="8">bJS_item c_background-yellow</f:case>
+			<f:case value="9">bJS_item c_background-darkBlue</f:case>
+			<f:case value="10">bJS_item c_withLink c_background-lightGray</f:case>
+			<f:case value="11">bJS_item c_withLink c_background-darkGray</f:case>
+			<f:case value="12">bJS_item c_withLink c_background-yellow</f:case>
+			<f:case value="13">bJS_item c_withLink c_background-darkBlue</f:case>
+		</f:switch>
+	">
+	<f:link.typolink parameter="{data.tx_b13ce_link}" class="b_t4 b_is-text-white">
+			<p class="b_t3 c_headline b_is-text-darkBlue {f:if(condition:'{data.header_layout}',then:'c_indentText')}">
+				<f:if condition="{data.header_layout}"><f:render partial="icons" section="icon{data.header_layout}" /></f:if>{data.header}
+			</p>
+			<div class="{f:if(condition:'{data.layout} == 1',then:'',else:'c_contentWrap')} embed-responsive embed-responsive-3by2">
+				<div class="embed-responsive-item c_teaser c_itemPadding
+					<f:switch expression="{data.layout}">
+						<f:case value="6">c_teaserWithSmallText</f:case>
+						<f:case value="7">c_teaserWithSmallText</f:case>
+						<f:case value="8">c_teaserWithSmallText b_is-text-darkBlue</f:case>
+						<f:case value="9">c_teaserWithSmallText</f:case>
+
+						<f:case value="4">b_is-text-darkBlue</f:case>
+						<f:case value="12">b_is-text-darkBlue</f:case>
+					</f:switch>
+					"
+					<f:if condition="{data.layout} == 1">
+						<f:for each="{thisimage}" as="file" iteration="itemIteration">
+							<f:if condition="{itemIteration.isFirst}">
+								style="background-image: url('{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'900',height:'600')}');"
+							</f:if>
+						</f:for>
+					</f:if>
+				>
+					<f:if condition="{data.layout} == 1">
+						<f:then></f:then>
+						<f:else>{data.bodytext}</f:else>
+					</f:if>
+				</div>
+				<f:switch expression="{data.layout}">
+					<f:case value="1"><span class="b_t4 b_is-text-white"><div class="c_overlay c_itemPadding">{data.tx_b13ce_linktext}</div></span></f:case>
+					<f:case value="6"><span class="b_t4 b_is-text-white"><div class="c_overlay c_itemPadding">{data.tx_b13ce_linktext}</div></span></f:case>
+					<f:case value="7"><span class="b_t4 b_is-text-white"><div class="c_overlay c_itemPadding">{data.tx_b13ce_linktext}</div></span></f:case>
+					<f:case value="8"><span class="b_t4 b_is-text-white"><div class="c_overlay c_itemPadding">{data.tx_b13ce_linktext}</div></span></f:case>
+					<f:case value="9"><span class="b_t4 b_is-text-white"><div class="c_overlay c_itemPadding">{data.tx_b13ce_linktext}</div></span></f:case>
+					<f:case value="10"><span class="b_t4 b_is-text-white"><div class="c_overlay c_itemPadding">{data.tx_b13ce_linktext}</div></span></f:case>
+					<f:case value="11"><span class="b_t4 b_is-text-white"><div class="c_overlay c_itemPadding">{data.tx_b13ce_linktext}</div></span></f:case>
+					<f:case value="12"><span class="b_t4 b_is-text-white"><div class="c_overlay c_itemPadding">{data.tx_b13ce_linktext}</div></span></f:case>
+					<f:case value="13"><span class="b_t4 b_is-text-white"><div class="c_overlay c_itemPadding">{data.tx_b13ce_linktext}</div></span></f:case>
+				</f:switch>
+			</div>
+		</f:link.typolink>
+	</div>
+</div>
+</html>

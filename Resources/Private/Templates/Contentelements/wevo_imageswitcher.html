@@ -1,0 +1,31 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="bJS_switchImageModule b_ct-switchImageModule b_has-marginTop b_has-dividerTop">
+	<h2 class="b_t3 b_is-text-WevoCyan b_headline text-left">{data.header}</h2>
+
+	<div class="row">
+		<div class="col-lg-16">
+			<div class="bJS_switchImage c_switchImage">
+				<f:render partial="firstImage" section="firstImage" arguments="{images:'{thisimage}',class:'img-responsive b_state-active',width:'800c',height:'600c'}" />
+				<f:render partial="firstImage" section="firstImage" arguments="{images:'{thisimage2}',class:'img-responsive',width:'800c',height:'600c'}" />
+			</div>
+			<div class="row c_toggleImageWrap b_icon b_icon-arrowRight">
+				<div class="col-xs-12">
+					<a href="#" class="text-center c_link b_state-active bJS_toggleImageSwitch" data-index="0">
+						<p class="b_t1"><f:format.htmlspecialchars>{data.wevo_additionaltext1}</f:format.htmlspecialchars></p>
+						<p class="b_t5"><f:format.htmlspecialchars>{data.wevo_additionaltext2}</f:format.htmlspecialchars></p>
+					</a>
+				</div>
+				<div class="col-xs-12">
+					<a href="#" class="text-center c_link bJS_toggleImageSwitch" data-index="1">
+						<p class="b_t1"><f:format.htmlspecialchars>{data.wevo_additionaltext3}</f:format.htmlspecialchars></p>
+						<p class="b_t5"><f:format.htmlspecialchars>{data.wevo_additionaltext4}</f:format.htmlspecialchars></p>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-8 c_sitebar b_t5">
+			<p><f:format.nl2br>{data.bodytext}</f:format.nl2br></p>
+		</div>
+	</div>
+</div>
+</html>

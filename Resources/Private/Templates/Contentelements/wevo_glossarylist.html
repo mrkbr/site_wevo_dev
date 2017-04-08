@@ -1,0 +1,31 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="b_item">
+	<div class="b_headline b_m1 b_is-text-cyan text-uppercase">{data.header}</div>
+	<ul class="list-unstyled b_is-btnList b_is-btnList-yellow b_is-btnList-withIconRight">
+	<f:comment><!-- lib.getInfoPageMenu returns <li> elements without a <ul> wrapper --></f:comment>
+	<f:cObject typoscriptObjectPath="lib.getInfoPageMenu" />
+		<li>
+		<a href="#bJS_glossary" class="b_m2 b_btn b_icon b_icon-Dropdown_L text-uppercase collapsed c_btnVertical" data-toggle="collapse" aria-expanded="false" aria-controls="bJS_glossary">{data.subheader}</a>
+			<div id="bJS_glossary" class="b_glossary collapse">
+				<ul class="list-unstyled b_is-btnList">
+				<f:for each="{listitems}" as="item">
+					<li>
+						<div class="c_item">
+							<a href="#bJS_glossary-{item.data.uid}" class="c_header b_btn b_m2 collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="bJS_glossary-{item.data.uid}">
+								<f:if condition="{item.data.linktype}">
+									<f:render partial="icons" section="icon{item.data.linktype}"></f:render>
+								</f:if>
+								{item.data.header}
+							</a>
+							<div id="bJS_glossary-{item.data.uid}" class="collapse">
+								<f:link.typolink parameter="{item.data.link}" class="b_m2 c_text"><span>{item.data.subheader}</span> <i class="b_icon b_icon-LinkOhneKreis_L"></i></f:link.typolink>
+							</div>
+						</div>
+					</li>
+				</f:for>
+				</ul>
+			</div>
+		</li>
+	</ul>
+</div>
+</html>

@@ -1,0 +1,99 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="FullrowContentelement" />
+
+<f:section name="contentelement">
+<div id="bJS_branchSlider" class="b_ct_sliderWithBackgroundItems b_ct_branchSlider b_state-disableVideos bJS_playVideoInsideViewport">
+	<div class="bJS_slider b_ct_backgroundSlider b_slider">
+		<div class="b_slice b_is-backgroundSizeCover"
+			<f:for each="{thisimage}" as="file" iteration="itemIteration">
+				<f:if condition="{itemIteration.isFirst}">style="background-image: url('{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'1600',height:'900')}');"</f:if>
+			</f:for>
+		>
+			<iframe id="bJS_vimeoItem-B1" src="https://player.vimeo.com/video/{data.wevo_videoid}?api=1&autopause=0&player_id=bJS_vimeoItem-B1" frameborder="0" height="100%" width="100%"></iframe>
+		</div>
+		<div class="b_slice b_is-backgroundSizeCover"
+			<f:for each="{thisimage2}" as="file" iteration="itemIteration">
+				<f:if condition="{itemIteration.isFirst}">style="background-image: url('{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'1600',height:'900')}');"</f:if>
+			</f:for>
+		>
+			<iframe id="bJS_vimeoItem-B2" src="https://player.vimeo.com/video/{data.wevo_videoid2}?api=1&autopause=0&player_id=bJS_vimeoItem-B2" frameborder="0" height="100%" width="100%"></iframe>
+		</div>
+		<div class="b_slice b_is-backgroundSizeCover"
+			<f:for each="{thisimage3}" as="file" iteration="itemIteration">
+				<f:if condition="{itemIteration.isFirst}">style="background-image: url('{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'1600',height:'900')}');"</f:if>
+			</f:for>
+		>
+			<iframe id="bJS_vimeoItem-B3" src="https://player.vimeo.com/video/{data.wevo_videoid3}?api=1&autopause=0&player_id=bJS_vimeoItem-B3" frameborder="0" height="100%" width="100%"></iframe>
+		</div>
+		<div class="b_slice b_is-backgroundSizeCover"
+			<f:for each="{thisimage4}" as="file" iteration="itemIteration">
+				<f:if condition="{itemIteration.isFirst}">style="background-image: url('{f:uri.image(src:'{file.uid}',treatIdAsReference:'1',width:'1600',height:'900')}');"</f:if>
+			</f:for>
+		>
+			<iframe id="bJS_vimeoItem-B4" src="https://player.vimeo.com/video/{data.wevo_videoid4}?api=1&autopause=0&player_id=bJS_vimeoItem-B4" frameborder="0" height="100%" width="100%"></iframe>
+		</div>
+	</div>
+
+	<div class="b_ct_overlayContent b_has-defaultModulePadding">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-xs-24 text-center">
+					<h2>{data.header}</h2>
+					<f:link.typolink parameter="{data.header_link}" class="btn btn-white">{data.subheader}</f:link.typolink>
+
+					<div class="bJS_previewSlider b_ct_previewSlider">
+						<div class="b_previewSlice bJS_previewSlice" data-customprogressbar="true">
+							<f:link.typolink parameter="{data.tx_b13ce_link}" class="b_is-text-white">
+								<i class="b_icon b_icon-Automotive_UL"></i>
+								<p class="text-nowrap b_t4">{data.tx_b13ce_linktext}</p>
+							</f:link.typolink>
+							<div class="progress">
+								<div class="bJS_progressbar progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+									<span class="sr-only">0% Complete</span>
+								</div>
+							</div>
+						</div>
+						<div class="b_previewSlice bJS_previewSlice" data-customprogressbar="true">
+							<f:link.typolink parameter="{data.tx_b13ce_link2}" class="b_is-text-white">
+								<i class="b_icon b_icon-Haushalt_UL"></i>
+								<p class="text-nowrap b_t4">{data.tx_b13ce_linktext2}</p>
+							</f:link.typolink>
+							<div class="progress">
+								<div class="bJS_progressbar progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+									<span class="sr-only">0% Complete</span>
+								</div>
+							</div>
+						</div>
+						<div class="b_previewSlice bJS_previewSlice" data-customprogressbar="true">
+							<f:link.typolink parameter="{data.wevo_link3}" class="b_is-text-white">
+								<i class="b_icon b_icon-Technik_UL"></i>
+								<p class="text-nowrap b_t4">{data.wevo_linktext3}</p>
+							</f:link.typolink>
+							<div class="progress">
+								<div class="bJS_progressbar progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+									<span class="sr-only">0% Complete</span>
+								</div>
+							</div>
+						</div>
+						<div class="b_previewSlice bJS_previewSlice" data-customprogressbar="true">
+							<f:link.typolink parameter="{data.wevo_link4}" class="b_is-text-white">
+								<i class="b_icon b_icon-Energie_UL"></i>
+								<p  class="text-nowrap b_t4">{data.wevo_linktext4}</p>
+							</f:link.typolink>
+							<div class="progress">
+								<div class="bJS_progressbar progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+									<span class="sr-only">0% Complete</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</f:section>
+</html>

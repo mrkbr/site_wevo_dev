@@ -1,0 +1,141 @@
+
+	 // Core variables and mixins
+@import "variables.less";
+@import "../../../bower_components/bootstrap/less/mixins.less";
+
+// Reset and dependencies
+@import "../../../bower_components/bootstrap/less/normalize.less";
+@import "../../../bower_components/bootstrap/less/print.less";
+//@import "../../../bower_components/bootstrap/less/glyphicons.less";
+
+// Core CSS
+@import "../../../bower_components/bootstrap/less/scaffolding.less";
+@import "../../../bower_components/bootstrap/less/type.less";
+//@import "../../../bower_components/bootstrap/less/code.less";
+@import "../../../bower_components/bootstrap/less/grid.less";
+// @import "../../../bower_components/bootstrap/less/tables.less";
+@import "../../../bower_components/bootstrap/less/forms.less";
+@import "../../../bower_components/bootstrap/less/buttons.less";
+
+// Components
+@import "../../../bower_components/bootstrap/less/component-animations.less";
+//@import "../../../bower_components/bootstrap/less/dropdowns.less";
+//@import "../../../bower_components/bootstrap/less/button-groups.less";
+//@import "../../../bower_components/bootstrap/less/input-groups.less";
+//@import "../../../bower_components/bootstrap/less/navs.less";
+// dependency forms.less
+//@import "../../../bower_components/bootstrap/less/navbar.less";
+@import "../../../bower_components/bootstrap/less/breadcrumbs.less";
+@import "../../../bower_components/bootstrap/less/pagination.less";
+//@import "../../../bower_components/bootstrap/less/pager.less";
+@import "../../../bower_components/bootstrap/less/labels.less";
+//@import "../../../bower_components/bootstrap/less/badges.less";
+//@import "../../../bower_components/bootstrap/less/jumbotron.less";
+//@import "../../../bower_components/bootstrap/less/thumbnails.less";
+//@import "../../../bower_components/bootstrap/less/alerts.less";
+@import "progress-bars.less";
+@import "../../../bower_components/bootstrap/less/media.less";
+@import "../../../bower_components/bootstrap/less/list-group.less";
+//@import "../../../bower_components/bootstrap/less/panels.less";
+@import "../../../bower_components/bootstrap/less/responsive-embed.less";
+//@import "../../../bower_components/bootstrap/less/wells.less";
+//@import "../../../bower_components/bootstrap/less/close.less";
+
+// Components w/ JavaScript
+//@import "../../../bower_components/bootstrap/less/modals.less";
+//@import "../../../bower_components/bootstrap/less/tooltip.less";
+//@import "../../../bower_components/bootstrap/less/popovers.less";
+//@import "../../../bower_components/bootstrap/less/carousel.less";
+
+// Utility classes
+@import "../../../bower_components/bootstrap/less/utilities.less";
+@import "../../../bower_components/bootstrap/less/responsive-utilities.less";
+
+
+//Slick-Carousel styles import
+@import (less) "../../../bower_components/slick-carousel/slick/slick.css";
+
+@import "b_icon";
+
+@import "fonts";
+@import "b_is";
+@import "b_has";
+@import "type";
+@import "globals";
+
+@import "dl";
+@import "header";
+@import "footer";
+@import "slider";
+@import "table";
+@import "module";
+@import "accordions";
+@import "management";
+
+// WEVOSD-60
+h3,
+// WEVOSD-39
+p {
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
+	.b_nohyphens {
+		 -webkit-hyphens: none;
+		 -moz-hyphens: none;
+		 hyphens: none;
+	}
+}
+.b_diagram-text {
+	margin-top: 30px;
+	// see WEVOSD-47
+	ul li:before {
+		top: 7px;
+		left: -17px;
+	}
+}
+
+@-webkit-keyframes move {
+	from {
+		-webkit-transform: translateY(0) rotate(90deg);
+		-webkit-animation-timing-function: ease-in;
+	}
+	to {
+		-webkit-transform: translateY(5px) rotate(90deg);
+		-webkit-animation-timing-function: ease-out;
+	}
+}
+@keyframes move {
+	from {
+		transform: translateY(0) rotate(90deg);
+		animation-timing-function: ease-in;
+	}
+	to {
+		transform: translateY(5px) rotate(90deg);
+		animation-timing-function: ease-out;
+	}
+}
+
+
+.b_startpage .b_ct_scrollDown {
+	.b_icon-DropdownOhneKreis_L {
+		animation: move 1.2s infinite 0.4s alternate;
+	}
+}
+
+
+
+@media only print {
+	.b_noprint {
+		display: none;
+	}
+}
+
+.embed-responsive-16by5838 {
+	padding-bottom: 36.49%
+}
+
+// see WEVOSD-154
+.b_icon-wevoLogo:before {
+	width: 142px;
+	display: block;
+}

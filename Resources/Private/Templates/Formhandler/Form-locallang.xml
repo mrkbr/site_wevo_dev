@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>Language labels for registration form step 2</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="error_zip_required"><![CDATA[<p class="help-block">Bitte gib eine gültige PLZ in Hessen oder Thüringen an.</p>]]></label>
+			<label index="error_zip_isindbtable"><![CDATA[<p class="help-block">Deine PLZ liegt nicht in Hessen oder Thüringen.</p>]]></label>
+		</languageKey>
+	</data>
+</T3locallang>

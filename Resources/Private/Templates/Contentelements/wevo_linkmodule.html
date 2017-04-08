@@ -1,0 +1,23 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="FullrowContentelement" />
+
+<f:section name="contentelement">
+
+<f:for each="{listitems}" as="item">
+	<div class="b_ct-linkModule b_is-backgroundDarkBlue">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-24">
+					<f:link.typolink parameter="{item.data.link}" class="b_is-singleLineLinkWithIcon b_t4 b_is-text-white">
+						<i class="b_icon b_icon-LinkOhneKreis_L"></i>
+						{item.data.linklabel}
+					</f:link.typolink>
+				</div>
+			</div>
+		</div>
+	</div>
+</f:for>
+
+</f:section>
+</html>

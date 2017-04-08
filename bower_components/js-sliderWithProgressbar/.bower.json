@@ -1,0 +1,21 @@
+{
+  "name": "js-sliderWithProgressbar",
+  "description": "Slider with Progressbar",
+  "main": "dist/js-sliderWithProgressbar.js",
+  "dependencies": {
+    "jquery": ">= 1.8.0",
+    "slick-carousel": "~1.5.5",
+    "bootstrap": "~3.3.4",
+    "requirejs": "~2.1.18"
+  },
+  "homepage": "https://github.com/b13/js-sliderWithProgressbar",
+  "_release": "V0.5",
+  "_resolution": {
+    "type": "tag",
+    "tag": "V0.5",
+    "commit": "966f139b3386bcf51936091de3c6b7aa792247b5"
+  },
+  "_source": "https://github.com/b13/js-sliderWithProgressbar.git",
+  "_target": "V0.5",
+  "_originalSource": "https://github.com/b13/js-sliderWithProgressbar.git"
+}

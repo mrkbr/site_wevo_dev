@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Page browser template</title>
+</head>
+<body>
+
+<!-- ###PAGE_BROWSER### begin -->
+<div class="b_has-dividerTop text-center">
+	<!--TYPO3SEARCH_end-->
+	<nav>
+		<ul class="pagination">
+			<!-- ###ACTIVE_PREV### begin -->
+			<li class="tx-pagebrowse-prev"><a href="###FIRST_LINK###" aria-label="###TEXT_PREV###">
+				<i aria-hidden="true" class="b_icon b_icon-DropdownOhneKreis_L b_is-rotated180deg"></i>
+			</a></li>
+			<!-- ###ACTIVE_PREV### end -->
+
+			<!--  ###LESS_PAGES### begin -->
+			<li>...</li>
+			<!--  ###LESS_PAGES### end -->
+			<!-- ###PAGE### begin -->
+			<li class="tx-pagebrowse-page"><a href="###LINK###">###NUMBER_DISPLAY###</a></li>
+			<!-- ###PAGE### end -->
+			<!-- ###CURRENT### begin -->
+			<li class="tx-pagebrowse-current active"><a href="###LINK###">###NUMBER_DISPLAY###</a></li>
+			<!-- ###CURRENT### end -->
+			<!--  ###MORE_PAGES### begin -->
+			<li>...</li>
+			<!--  ###MORE_PAGES### end -->
+
+			<!-- ###ACTIVE_NEXT### begin -->
+			<li class="tx-pagebrowse-next"><a href="###NEXT_LINK###" aria-label="###TEXT_NEXT###">
+				<i aria-hidden="true" class="b_icon b_icon-DropdownOhneKreis_L"></i>
+			</a></li>
+			<!-- ###ACTIVE_NEXT### end -->
+
+		</ul>
+	</nav>
+	<!--TYPO3SEARCH_begin-->
+</div>
+<!-- ###PAGE_BROWSER### end -->
+
+</body>
+</html>

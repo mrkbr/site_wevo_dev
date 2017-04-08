@@ -1,0 +1,362 @@
+
+//
+// Header
+// --------------------------------------------------
+
+header.b_ct_header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 100;
+	text-transform: uppercase;
+    transition: transform 200ms ease-in-out;
+	&.headroom--pinned {
+		transform: translateY(0%);
+	}
+	&.headroom--unpinned {
+		transform: translateY(-100%);
+	}
+}
+
+
+// Navbar
+// -------------------------
+
+nav.b_navbar {
+	position: relative;
+	z-index: 75;
+	background: @wevo-gray-light;
+	height: @header-height;
+	padding: 13px 0;
+	font-family: @font-family-wevo-light;
+	font-size: 24px;
+	line-height: 42px;
+	color: @wevo-gray-2;
+	a {
+		color: @wevo-gray-2;
+		&.b_logo {
+			width: 140px;
+			color: @wevo-blue-dark;
+		}
+		&.b_icon {
+			font-size: 42px;
+		}
+	}
+
+		// change navbar color for gray page and light gray page
+	body.b_darkNavbar & {
+		background: @wevo-gray-4;
+		color: #fff;
+		a {
+			color: #fff;
+		}
+			// override bootstrap breadcrumb color for gray page
+		.breadcrumb > li + li:before {
+			color: #fff;
+		}
+	}
+
+	.breadcrumb > li + li:before {
+		.transition(@defaultLinkTransition);
+	}
+
+		// add navbar hover #WEVO-90
+	.transition(~"@{defaultLinkTransition}, background-color 125ms");
+	&:hover {
+		background-color: @wevo-cyan!important;
+		color: #fff;
+		.b_logo,
+		.b_icon,
+		.breadcrumb > li + li::before,
+		a {
+			color: #fff;
+		}
+	}
+	a:hover {
+		color: @wevo-blue-dark!important;
+	}
+
+	// removed as this is now part of the <a> Tag (see fix below)
+	//.b_toggleMenu {
+	//	+ .breadcrumb > li:first-child {
+	//		.transition(~"@{defaultLinkTransition}, background-color 125ms");
+	//	}
+	//	&:hover {
+	//		+ .breadcrumb > li:first-child {
+	//			color: @wevo-blue-dark;
+	//		}
+	//	}
+	//}
+}
+
+// fix for the main menu: have "menu" and the menu icon in the same <a>-Tag
+.b_toggleMenu span {
+	font-family: @font-family-wevo-light;
+	font-size: 24px;
+	line-height: 42px;
+	text-transform: uppercase;
+	padding-left: 18px;
+	vertical-align: middle;
+	margin-top: -8px;
+	display: inline-block;
+	padding-right: 0;
+	margin-right: 0;
+	-webkit-font-smoothing: auto;
+	-moz-osx-font-smoothing: auto;
+
+}
+ol.breadcrumb {
+	// after adjusting the icons again the text for the
+	// breadcrumb was sitting way higher than "Menu"
+	height: 45px;
+	line-height: 47px;
+	padding-left: 0;
+	li:before {
+		content: "@{breadcrumb-separator}\00a0"; // Unicode space added since inline-block means non-collapsing white-space
+		padding: 0 5px;
+	}
+}
+
+
+// Menu flyout
+// -------------------------
+
+.b_ct_menuFlyout {
+	background: @wevo-cyan;
+	width: 100vw;
+	min-height: 100vh;
+	position: absolute;
+		// make sure the flyout is not visible inside the viewport
+	top: -300vh;
+	z-index: 50;
+	.transition(top @header-transition-duration ease-in-out);
+	padding-top: 90px;
+	padding-bottom: 50px;
+	@media (min-width: @screen-md) {
+		padding-top: 145px;
+	}
+}
+
+// menu inside the flyout
+// -------------------------
+.b_ct_menu {
+	margin-top: 25px;
+	position: relative;
+	z-index: 40;
+	@media (min-width: @screen-md) {
+		margin-top: 46px;
+	}
+	a {
+		display: block;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	@media (max-width: @screen-xs-max) {
+		.h4 {
+			line-height: 35px;
+		}
+	}
+	@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+		.h4 {
+			line-height: 1em;
+		}
+	}
+}
+
+
+// language menu
+// -------------------------
+ul.b_ct_languageMenu {
+	position: relative;
+	z-index: 50;
+	> li {
+		margin-right: 5px;
+		line-height: 42px;
+		// search
+		&.b_ct_search {
+			margin-left: 10px;
+			@media (min-width: @screen-md) {
+				margin-left: 20px;
+			}
+		}
+	}
+}
+
+// Search
+// place inside the flyout
+// -------------------------
+.b_ct_search {
+	position: relative;
+	top: -2px;
+
+	button {
+		color: #fff;
+		&:hover {
+			html.b_no-touch & {
+				color: @wevo-blue-dark;
+			}
+		}
+	}
+
+		// wraps the search input
+	.b_searchWrap {
+		// show search input on mobile
+		@media (max-width: @screen-xs-max) {
+			width: 200px;
+			display: inline-block;
+			margin-bottom: 0;
+			overflow: visible;
+			input.b_search {
+				width: 200px;
+			}
+		}
+		margin-left: 12px;
+		position: relative;
+		overflow: hidden;
+		width: 0;
+    	.transition(width 600ms ease-in-out);
+	}
+
+		// by default hidden
+	input.b_search {
+		.size(300px,38px);
+		background-color: transparent;
+		border-color: #fff;
+		color: #fff;
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+
+		// search as you type list
+	.b_ct-searchAsYouType {
+		display: none;
+		position: absolute;
+		left: 0;
+		top: 38px;
+		z-index: 500;
+		background: #fff;
+		width: 300px;
+		padding: 10px 20px;
+		color: @wevo-blue-dark;
+		a {
+			display: block;
+			color: @wevo-blue-dark!important;
+			&:hover {
+				color: @wevo-cyan!important;
+			}
+		}
+	}
+
+		// input form is visible
+	form.b_state-active .b_searchWrap {
+		width: 300px;
+	}
+	form.b_state-active .b_ct-searchAsYouType {
+		html.b_no-touch & {
+			display: block;
+		}
+	}
+		// class will be added by JS
+	form.b_state-showSuggestions .b_searchWrap {
+		overflow: visible;
+	}
+}
+
+
+// if flyout is open
+// -------------------------
+header.b_ct_header.b_state-menuOpen {
+	z-index: 1000;
+		// override inline css (position: fixed - which is set by scroll-up-bar) to make the flyout scrollable
+	position: relative!important;
+
+	nav.b_navbar {
+		background-color: @wevo-cyan;
+	}
+
+		// place navbar items (toggle menu, breadcrumb and logo) over the menu flyout
+	nav.b_navbar > div {
+		.transition(@header-transition-duration color);
+		position: relative;
+		z-index: 100;
+		color: #fff;
+			// override bootstrap breadcrumb color
+		li:before {
+			color: #fff;
+		}
+	}
+
+		// show menu flyout
+	.b_ct_menuFlyout {
+		top: 0;
+	}
+
+	a {
+		color: #fff;
+		display: inline-block;
+		&:hover {
+			html.b_no-touch & {
+				color: @wevo-blue-dark;
+			}
+		}
+		&.b_active {
+			color: @wevo-blue-dark;
+		}
+	}
+		// change navbar color for gray page
+		// needed to override default definition
+	body.b_darkNavbar & {
+		a {
+			color: #fff;
+			&:hover {
+				html.b_no-touch & {
+					color: @wevo-blue-dark;
+				}
+			}
+		}
+	}
+
+		// hide other page parts if menu is flyout is open
+	+ main,
+	+ main + footer {
+		display: none;
+	}
+
+		// change toggle menu icon to close icon
+	.b_toggleMenu {
+		.b_icon-Schliessen_L();
+	}
+}
+
+// Breadcrumb
+// adjust breadcrumb pipe divider #WEVO-70
+// -------------------------
+.breadcrumb > li + li:before {
+	vertical-align: top;
+	position: relative;
+	top: -1px;
+}
+
+
+// Language menu, see WEVOSD-123
+
+.b_header-langMenu {
+	position: absolute;
+	font-size: 18px;
+	right: 170px;
+	@media (min-width: @screen-md-min) {
+		right: 222px;
+	}
+	width: 200px;
+	text-align: right;
+	li {
+		padding-left: 10px;
+	}
+	a {
+		color: @wevo-gray-2;
+		&.b_active {
+			color: @wevo-blue-dark !important;
+		}
+	}
+}
+

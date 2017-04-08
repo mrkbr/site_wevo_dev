@@ -1,0 +1,31 @@
+.b_dl-dots {
+    margin-left: 11px;
+    @media (min-width: @screen-md) {
+        margin-left: 21px;
+    }
+    dd {
+        margin-left: 126px;
+    }
+    dt {
+        font-weight: normal;
+        position: relative;
+        float: left;
+        margin-right: 18px;
+        &:before {
+            content: "";
+            display: block;
+            .square(3px);
+            background-color: @wevo-gray-2;
+            position: absolute;
+            left: -11px;
+            top: 11px;
+            @media (min-width: @screen-md) {
+                left: -20px;
+                top: 11px;
+                .square(5px);
+            }
+            .border-top-radius(50%);
+            .border-bottom-radius(50%);
+        }
+    }
+}

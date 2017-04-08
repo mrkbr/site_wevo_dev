@@ -1,0 +1,199 @@
+.b_video-accordion-item {
+	.transition(~"height 1s ease, background-color 1s ease");
+
+	position: relative;
+	height: 60px;
+
+	@media (min-width: @screen-xs-min) {
+		height: 70px;
+	}
+
+	@media (min-width: @screen-sm-min) {
+		height: 80px;
+	}
+
+	@media(min-width: @screen-md-min){
+		height: 115px;
+	}
+
+	h2 {
+		/* see WEVOSD-70 */
+		a,
+		a:hover {
+			color: #fff;
+		}
+
+		margin-top: 15px;
+		@media (min-width: @screen-xs-min) {
+			margin-top: 40px;
+		}
+		@media (min-width: @screen-sm-min) {
+			margin-top: 60px;
+		}
+		@media (min-width: @screen-md-min) {
+			margin-top: 80px;
+
+			// WEVOSD-58
+			font-size: 85px;
+			line-height: 90px;
+		}
+
+		@media (min-width: @screen-lg-min) {
+			margin-top: 95px;
+		}
+		@media (max-width: @screen-xs-max) {
+			font-size: 35px;
+			line-height: 35px;
+		}
+	}
+
+	.btn {
+		@media (min-width: @screen-xs-min) {
+			margin-top: 20px;
+		}
+	}
+
+
+	iframe {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+	}
+
+	&-header {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		height: 60px;
+		line-height: 60px;
+		cursor: pointer;
+
+		@media (min-width: @screen-xs-min) {
+			height: 70px;
+			line-height: 70px;
+		}
+
+		@media(min-width: @screen-sm-min){
+			height: 80px;
+			line-height: 80px;
+		}
+
+		@media(min-width: @screen-md-min){
+			height: 115px;
+			line-height: 115px;
+		}
+
+		i {
+			font-size: 40px;
+			margin-right: 20px;
+			margin-top: -4px;
+			@media (min-width: @screen-xs-min) {
+				font-size: 42px;
+			}
+
+			@media (min-width: @screen-sm-min) {
+				font-size: 46px;
+			}
+
+			@media(min-width: @screen-md-min){
+				font-size: 80px;
+				margin-top: -8px;
+				margin-right: 35px;
+			}
+		}
+	}
+	&-contentWrap {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+	&-content {
+		position: relative;
+		height: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		opacity: 0;
+		overflow: hidden;
+
+		.transition(opacity 1s ease);
+	}
+
+	&-image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: 50%;
+		z-index: -1;
+	}
+
+	&.b_active {
+		background-color: transparent;
+
+		.b_video-accordion-item-content {
+			opacity:1;
+		}
+	}
+
+		// hide vimeo videos for touch devices
+	html.b_touch & {
+		iframe {
+			display: none;
+		}
+	}
+}
+
+
+// OK, now for the freaky color stuff for the accordion elements:
+.b_video-accordion-item {
+	&.b_is-backgroundGray6,
+	&.b_is-backgroundDarkBlue {
+		.b_video-accordion-item-header,
+		.b_video-accordion-item-content {
+			color: #fff;
+		}
+	}
+	&.b_is-backgroundGray5,
+	&.b_is-backgroundYellow	{
+		.b_video-accordion-item-header,
+		.b_video-accordion-item-content {
+			color: @wevo-blue-dark;
+		}
+	}
+	&.b_active .b_video-accordion-item-header,
+	.b_video-accordion-item-header:hover {
+		color: @wevo-cyan;
+	}
+}
+
+.b_text-accordion-item {
+	&-header {
+        .c_status {
+            margin: -5px 10px 0 5px;
+            &:extend(.b_icon-Minus_L all);
+        }
+		&.collapsed {
+			color: inherit;
+			&:hover {
+				color: @link-hover-color;
+			}
+            .c_status {
+                &:extend(.b_icon-PLus_L all);
+            }
+		}
+	}
+	&-content {
+		p:first-child {
+			margin-top: 13px;
+		}
+	}
+}

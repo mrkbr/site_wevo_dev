@@ -1,0 +1,128 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<div class="b_ct-productListModule">
+	<div class="row">
+
+		<f:render section="productinfo" arguments="{
+			headline:	data.header
+			, subline:	data.subheader
+			, bodytext:	data.bodytext
+			, icon:		'b_icon-Pur_UL'
+			, link:		data.tx_b13ce_link
+			, linklabel: data.tx_b13ce_linktext
+			, color:	'b_is-text-cyan'
+		}" />
+
+		<f:render section="productinfo" arguments="{
+			headline:	data.wevo_additionaltext1
+			, subline:	data.wevo_additionaltext2
+			, bodytext:	data.wevo_bodytext2
+			, icon:		'b_icon-Ep_UL'
+			, link:		data.tx_b13ce_link2
+			, linklabel: data.tx_b13ce_linktext2
+			, color:	'b_is-text-orange'
+		}" />
+
+		<f:render section="productinfo" arguments="{
+			headline:	data.wevo_additionaltext3
+			, subline:	data.wevo_additionaltext4
+			, bodytext:	data.wevo_bodytext3
+			, icon:		'b_icon-Si_UL'
+			, link:		data.wevo_link3
+			, linklabel: data.wevo_linktext3
+			, color:	'b_is-text-yellow'
+		}" />
+
+	</div>
+
+
+	<div id="bJS_productResultTabs" class="row hidden-xs hidden-sm b_productResultTabs" aria-multiselectable="false">
+
+		<f:render section="tablink" arguments="{
+			uid:		data.uid
+			, counter:	1
+			, title:	data.tx_b13ce_linktext
+			, class:    'b_animate'
+		}" />
+
+		<f:render section="tablink" arguments="{
+			uid:		data.uid
+			, counter:	2
+			, title:	data.tx_b13ce_linktext2
+			, class:    'b_animate'
+		}" />
+
+		<f:render section="tablink" arguments="{
+			uid:		data.uid
+			, counter:	3
+			, title:	data.wevo_linktext3
+			, class:    'b_animate'
+		}" />
+
+	</div>
+
+</div>
+
+<!-- start subpage content tab menu -->
+			</div>
+	</div>
+</div>
+	<div id="bJS_accordionAjaxContainer">
+		<div id="bJS_subpage-{data.uid}-1"
+			 class="b_ct-subpage collapse"
+			 data-contenturl="{f:uri.page(pageUid:'{data.tx_b13ce_link}',absolute:'1')}">
+		</div>
+		<div id="bJS_subpage-{data.uid}-2"
+			 class="b_ct-subpage collapse"
+			 data-contenturl="{f:uri.page(pageUid:'{data.tx_b13ce_link2}',absolute:'1')}">
+		</div>
+		<div id="bJS_subpage-{data.uid}-3"
+			 class="b_ct-subpage collapse"
+			 data-contenturl="{f:uri.page(pageUid:'{data.wevo_link3}',absolute:'1')}">
+		</div>
+	</div>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-24">
+<!-- end subpage content tab menu -->
+
+
+
+<f:section name="productinfo">
+	<div class="col-sm-12 col-md-8 col-sm-offset-6 col-md-offset-0 c_col">
+		<div class="hidden-xs hidden-sm">
+			<div class="c_header text-center">
+				<i class="b_icon {icon} c_icon-big {color}"></i>
+				<p class="b_t4 b_is-text-white c_headline">{headline}</p>
+				<p class="b_t4 b_is-text-WevoSilver c_subline"><f:format.raw>{subline}</f:format.raw></p></div>
+
+			<p class="b_t4 b_is-text-WevoSilver"><f:format.nl2br>{bodytext}</f:format.nl2br></p>
+		</div>
+		<div class="c_resultIcon text-center b_t4 c_mobileMaxWith hidden-md hidden-lg">
+			<f:link.typolink parameter="{link}"><i class="b_icon {icon} c_icon-big {color}"></i></f:link.typolink>
+			<p class="text-uppercase b_is-text-white c_headline">{headline}</p>
+			<p class="b_is-text-WevoSilver"><f:format.raw>{subline}</f:format.raw></p>
+			<p class="b_t4 b_is-text-WevoSilver"><f:format.nl2br>{bodytext}</f:format.nl2br></p>
+			<p class="b_t4 b_is-text-WevoSilver c_mobilelink"><f:link.typolink parameter="{link}" class="b_is-text-WevoSilver"><i class="b_icon b_icon-LinkOhneKreis_L"></i> {linklabel}</f:link.typolink></p>
+		</div>
+	</div>
+</f:section>
+
+
+<f:section name="tablink">
+	<div class="col-md-8">
+		<div class="c_resultIcon text-center b_t4 hidden-xs hidden-sm <f:if condition='{class}'>{class}</f:if>">
+			<i class="b_icon b_icon-arrowRight c_resultArrow b_is-rotated90deg"></i>
+			<ul class="list-unstyled b_is-btnList b_is-btnList-withGradient b_is-btnList-withLightBackgroundHover b_has-marginTop text-left">
+				<li>
+					<a href="#bJS_subpage-{uid}-{counter}" class="b_t5 b_btn collapsed bJS_loadContentViaAjax" data-toggle="collapse" aria-expanded="false" aria-controls="bJS_subpage-{uid}-{counter}" data-parent="#bJS_productResultTabs">
+						<i class="b_icon c_rotateIconIfOpened b_icon-DropdownOhneKreis_L"></i> {title}
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</f:section>
+
+
+</html>

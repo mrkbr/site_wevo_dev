@@ -1,0 +1,271 @@
+//
+// b_is
+// --------------------------------------------------
+
+.b_is {
+
+	&-wevoUltraLight {
+		font-family: 'wevoUltraLight';
+	}
+	&-wevoLight {
+		font-family: 'wevoLight';
+	}
+
+	&-whiteLink {
+		color: #fff;
+		&:focus {
+			color: #fff;
+		}
+		&:hover {
+			html.b_no-touch & {
+				color: @wevo-cyan;
+			}
+		}
+	}
+	&-grayLink {
+		color: @wevo-gray-7;
+		&:hover {
+			html.b_no-touch & {
+				color: @wevo-cyan;
+			}
+		}
+	}
+
+		// full width
+		// can be used together with img-response to upscale the img
+	&-fullWidth {
+		width: 100%;
+	}
+
+		// background size cover
+	&-backgroundSizeCover {
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	&-noPaddingTop {
+		padding-top: 0;
+	}
+
+		// background colors
+	&-backgroundDarkBlue {
+		background-color: @wevo-blue-dark;
+	}
+	&-backgroundCyan {
+		background-color: @wevo-cyan;
+	}
+	&-backgroundYellow {
+		background-color: @wevo-yellow;
+	}
+	
+	&-backgroundGray5 {
+		background-color: @wevo-gray-5;
+	}
+
+	&-backgroundGray6 {
+		background-color: @wevo-gray-6;
+	}
+
+	&-backgroundWevoGray-7 {
+		background-color: @wevo-gray-7;
+	}
+
+
+		// single line link with icon
+		// used for News and Link Module
+	&-singleLineLinkWithIcon {
+		display: block;
+		line-height: 65px;
+		.b_icon {
+			margin-right: 10px;
+			@media (min-width: @screen-md) {
+				margin-right: 20px;
+			}
+		}
+	}
+
+		// text color
+	&-text {
+		&-white {
+			color: #ffffff;
+		}
+		&-darkBlue {
+			color: @wevo-blue-dark;
+		}
+		&-WevoSilver {
+			color: @wevo-silver;
+		}
+		&-WevoCyan {
+			color: @wevo-cyan;
+		}
+		&-cyan {
+			color: @wevo-cyan;
+		}
+		&-yellow {
+			color: @wevo-yellow;
+		}
+		&-orange {
+			color: @wevo-orange;
+		}
+		&-black {
+			color: #000;
+		}
+	}
+
+		// styling for a ul button list with and gradient
+	&-btnList {
+		li + li,
+		> div + div {
+			margin-top: 4px;
+		}
+		a.b_btn {
+			display: block;
+			line-height: 40px;
+			padding-left: 20px;
+			padding-right: 20px;
+			color: @wevo-gray-5;
+			border-radius: 3px;
+			.text-overflow();
+			&.b_t4 {
+				line-height: 45px;
+			}
+			@media (max-width: @screen-xs-max) {
+				font-size: 15px;
+			}
+		}
+
+			// button list with gradient
+		&-withGradient a.b_btn {
+			// set background-color as fallback if CSS3 gradients are not supported by the browser
+			background-color: @wevo-gray-6;
+			@media (min-width: @screen-sm) {
+				#gradient > .horizontal(@wevo-gray-6, @wevo-gray-7);
+			}
+			&:hover {
+					// show hover for no touch devices
+				html.b_no-touch & {
+						// set background-color as fallback if CSS3 gradients are not supported by the browser
+					background: @wevo-cyan;
+					@media (min-width: @screen-sm) {
+						#gradient > .horizontal(@wevo-cyan, @wevo-gray-7);
+					}
+				}
+			}
+		}
+
+			// list with light background on hover
+		&-withLightBackgroundHover a.b_btn.b_hideForMobileBrowser {
+				// set background-color as fallback if CSS3 gradients are not supported by the browser
+			&:hover {
+				// show hover for no touch devices
+				html.b_no-touch & {
+					background-color: @wevo-gray-3;
+					#gradient > .horizontal(@wevo-gray-3, @wevo-gray-7, 41%, 100%);
+					color: @wevo-cyan;
+				}
+			}
+		}
+
+			// gray button with blue hover
+			// used as sub menu inside the right column
+		&-gray a.b_btn {
+			background-color: @wevo-gray-light;
+			color: @wevo-gray-7;
+			background-image: none!important;
+			&.b_active {
+				background-color: @wevo-cyan;
+				color: #fff;
+			}
+			&:hover {
+				html.b_no-touch & {
+					background-color: @wevo-cyan;
+					color: #fff;
+				}
+			}
+		}
+
+			// yellow button
+			// used as sub menu inside the right column
+		&-yellow a.b_btn {
+			background-color: @wevo-yellow;
+			color: @wevo-gray-7;
+			background-image: none!important;
+				// make sure to override text-transform definition from .b_icon
+			&.text-uppercase {
+				&:extend(.text-uppercase);
+			}
+			&:hover,
+			&[data-toggle="collapse"]:not(.collapsed),
+			&.b_active {
+				color: @wevo-cyan;
+				background-color: @wevo-yellow;
+			}
+			&:hover {
+				html.b_no-touch & {
+					color: @wevo-cyan;
+					background-color: @wevo-yellow;
+				}
+			}
+
+
+
+			// rotate icon if item is opened
+			&[data-toggle="collapse"]:before {
+				.transition(transform 300ms);
+			}
+			&[data-toggle="collapse"]:not(.collapsed):before {
+				.rotate(90deg);
+			}
+		}
+
+			// with icon on right side
+		&-withIconRight a.b_icon {
+			position: relative;
+			padding-right: 40px;
+			&:before {
+				position: absolute;
+				right: 18px;
+				font-size: 21px;
+				top: 3px;
+			}
+			&.b_icon-DropdownOhneKreis_L:before {
+				font-size: 16px;
+				right: 14px;
+				top: 0;
+			}
+			&.b_icon-Dropdown_L:before {
+				right: 11px;
+			}
+		}
+	}
+
+		// button.b_is-iconBtn
+		// remove default button styling and just show icon
+		// this is used for the search
+	&-iconBtn {
+		background: transparent;
+		border: none;
+		padding: 0;
+	}
+
+		// animated icon
+	&-animatedIcon {
+		//width: 60px;
+		//height: 60px;
+		//@media (min-width: @screen-lg) {
+			width: 100px;
+			height: 100px;
+		//}
+		// needed to override inline css set by swiffy.js
+		canvas {
+			top: 0!important;
+		}
+	}
+}
+
+.b_is-rotated90deg {
+	.rotate(90deg);
+}
+.b_is-rotated180deg {
+	.rotate(180deg);
+}

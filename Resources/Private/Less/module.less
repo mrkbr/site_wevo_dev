@@ -1,0 +1,1542 @@
+//
+// Module
+// --------------------------------------------------
+
+
+// Property Module
+// -------------------------
+.b_ct_propertyModule {
+	position: relative;
+	color: #fff;
+	#gradient .horizontal(@wevo-blue-dark, @wevo-cyan, 50%, 50%);
+
+		// adjust big number just for mobile and tablet
+	@media (max-width: @screen-sm-max) {
+		.b_z1 {
+			font-size: 175px;
+			line-height: 1em;
+		}
+		.b_t2 {
+			margin-top: 0;
+		}
+	}
+	@media (min-width: @screen-xs) and (max-width: @screen-sm-max) {
+		.b_z1 {
+			font-size: 275px;
+		}
+	}
+		// change margin top just for SM
+	@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+		.b_t2 {
+			margin-top: -22px;
+		}
+	}
+
+
+		// needed for breakpoint >= md to get 2 columns
+	.b_container {
+		padding-left: @grid-gutter-width / 2;
+		padding-right: @grid-gutter-width / 2;
+
+			// two columns for >= md
+		@media (min-width: @screen-md) {
+			.container;
+		}
+
+			// helper container for breakpoint sm
+		.b_containerForSM {
+			@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+				.container;
+			}
+
+		}
+	}
+
+		// icon list
+	.b_ct-iconList {
+		margin-top: 60px;
+		@media (min-width: @screen-md) {
+			margin-top: 20px;
+		}
+	}
+
+		// 2 columns: icon list with description
+	.b_iconListWithDescription {
+			// add margin right for mobile because we don't use a grid for < md
+		.b_icon {
+			@media (max-width: @screen-sm-max) {
+				margin-right: 20px;
+			}
+			@media (min-width: @screen-xs) {
+				font-size: 120px;
+			}
+		}
+		margin-bottom: 20px;
+		@media (min-width: @screen-md) {
+			margin-bottom: 30px;
+		}
+		.b_headline {
+			margin-top: 12px;
+		}
+		.b_headline + p {
+			@media (max-width: @screen-sm-max) {
+				margin-top: 0;
+			}
+		}
+		// make sure the text stays to the left of the icon and does not float around
+		// WEVOSD-69; 
+		@media (max-width: @screen-xs-max) {
+			.b_ct_description {
+				margin-left: 100px;
+			}
+		}
+			// center description vertical just for SM
+		@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+			.b_ct_description {
+				height: 120px;
+				vertical-align: middle;
+				display: table-cell;
+			}
+		}
+	}
+
+		// divider
+	hr {
+		display: inline-block;
+		width: 100%;
+		margin-top: 0;
+		margin-bottom: 45px;
+	}
+
+		// button
+	button,
+	a.btn {
+		.center-block();
+		&:hover {
+			html.b_no-touch & {
+				border-color: @wevo-blue-dark;
+				color: @wevo-blue-dark;
+			}
+		}
+	}
+
+		// close icon
+		// is just used for > sm and if an additional info area is visible
+	.b_close {
+		position: absolute;
+		top: 50px;
+		right: 50px;
+		display: none;
+		height: 45px;
+		width: 45px;
+		font-size: 43px;
+		line-height: 43px;
+		z-index: 80;
+	}
+
+	.b_additionalInfos {
+		display: none;
+	}
+
+	/**
+	 * THIS IS A MESS
+	 * ...but, hey, PT wanted it that way, going one step forward, two steps back, another exception and some more
+	 * minor adjustments...
+	 */
+	.b_propertyModuleCol-1,
+	.b_propertyModuleColAdditionalInfos-1 {
+		button:hover {
+			border-color: @wevo-cyan !important;
+			color: @wevo-cyan !important;
+		}
+		a:hover {
+			color: @wevo-cyan !important;
+			border-color: @wevo-cyan !important;
+			// see WEVOSD-85
+			.c_productcolor-cyan {
+				p {
+					color: @wevo-cyan !important;
+				}
+			}
+			.c_productcolor-yellow {
+				p {
+					color: @wevo-yellow !important;
+				}
+			}
+			.c_productcolor-orange {
+				p {
+					color: @wevo-orange !important;
+				}
+			}
+		}
+		.c_productcolor-cyan a:hover {
+			p {
+				color: @wevo-cyan !important;
+			}
+		}
+		.c_productcolor-yellow a:hover  {
+			p {
+				color: @wevo-yellow !important;
+			}
+		}
+		.c_productcolor-orange a:hover  {
+			p {
+				color: @wevo-orange !important;
+			}
+		}
+		hr {
+			border-color: @wevo-silver;
+			margin-top: 20px;
+		}
+		// see WEVOSD-85
+		p + p {
+			margin-top: 0;
+		}
+	}
+	.b_propertyModuleCol-2,
+	.b_propertyModuleColAdditionalInfos-2 {
+		button:hover {
+			border-color: @wevo-blue-dark;
+			color: @wevo-blue-dark;
+		}
+		a:hover {
+			color: @wevo-blue-dark;
+		}
+		hr {
+			border-color: @wevo-gray-5;
+		}
+	}
+
+		// just needed if additional infos are visible
+	@media (min-width: @screen-md) {
+
+		.b_t2,
+		// see WEVOSD-57
+		.b_propertyModuleCol-1 p.b_z1 + p.b_t2 {
+			margin-top: -70px;
+		}
+
+			// show close icon
+		&.b_state-showAdditionalInfosForCol-1,
+		&.b_state-showAdditionalInfosForCol-2 {
+			.b_close {
+				display: block;
+			}
+		}
+
+			// adjust styling for col 1
+		&.b_state-showAdditionalInfosForCol-1 {
+			#gradient .horizontal(@wevo-blue-dark, @wevo-blue-dark, 50%, 50%);
+			.b_propertyModuleCol-1,
+			.b_propertyModuleColAdditionalInfos-1 {
+				display: block;
+			}
+			.b_propertyModuleCol-2,
+			.b_propertyModuleColAdditionalInfos-2 {
+				display: none;
+			}
+			// needed for close icon
+			a:hover {
+				color: @wevo-cyan;
+			}
+			.b_propertyModuleCol-1 {
+				a.b_is-whiteLink {
+					color: @wevo-cyan;
+				}
+			}
+		}
+
+			// adjust styling for col 2
+		&.b_state-showAdditionalInfosForCol-2 {
+			#gradient .horizontal(@wevo-cyan, @wevo-cyan, 50%, 50%);
+			.b_propertyModuleCol-1,
+			.b_propertyModuleColAdditionalInfos-1 {
+				display: none;
+			}
+			.b_propertyModuleCol-2,
+			.b_propertyModuleColAdditionalInfos-2 {
+				display: block;
+			}
+			// needed for close icon
+			a:hover {
+				color: @wevo-blue-dark;
+			}
+			a.b_is-whiteLink {
+				color: @wevo-blue-dark;
+			}
+		}
+
+		.b_has-defaultModulePadding {
+			padding-bottom: 60px;
+		}
+	}
+
+	@media (min-width: @screen-md) and (max-width: @screen-md-max) {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+
+	@media (min-width: @screen-lg) {
+		height: 1078px;
+		.b_z1 {
+			margin-top: 115px;
+			margin-bottom: 8px;
+			line-height: 1em;
+		}
+		.b_t2,
+		// see WEVOSD-57 / WEVOSD-100
+		.b_propertyModuleCol-1 p.b_z1 + p.b_t2 {
+			margin-top: -25px;
+		}
+
+	}
+
+	// additional colors, see WEVOSD-85
+		.c_productcolor-cyan {
+			.b_icon {
+				color: @wevo-cyan;
+			}
+		}
+		.c_productcolor-yellow {
+			.b_icon {
+				color: @wevo-yellow;
+			}
+		}
+		.c_productcolor-orange {
+			.b_icon {
+				color: @wevo-orange;
+			}
+		}
+	a:hover {
+		//.c_productcolor-cyan {
+		//	.b_ct_description {
+		//		color: @wevo-cyan;
+		//	}
+		//}
+		//.c_productcolor-yellow {
+		//	.b_ct_description {
+		//		color: @wevo-yellow;
+		//	}
+		//}
+		//.c_productcolor-orange {
+		//	.b_ct_description {
+		//		color: @wevo-orange;
+		//	}
+		//}
+	}
+}
+
+
+// News Collapse Module
+// -------------------------
+.b_ct-newsCollapseModule {
+
+	.b_is-singleLineLinkWithIcon {
+		// WEVOSD-68
+		@media (max-width: @screen-xs-max) {
+			margin-left: 37px;
+			line-height: 2em;
+			padding-top: 16px;
+			padding-bottom: 17px;
+		}
+		// WEVOSD-68
+		@media (min-width: @screen-sm-min) {
+			line-height: 65px;
+		}
+		color: @wevo-gray-7;
+		&:hover {
+			html.b_no-touch & {
+				color: @wevo-cyan;
+			}
+		}
+	}
+
+
+		// add divider for multiple collapse items
+	.b_collapseItem + .b_collapseItem {
+		&:before {
+			content: "";
+			.dots(@wevo-gray-2);
+			width: 100%;
+			height: 2px;
+			display: block;
+		}
+	}
+
+	.b_newsContent {
+		margin: 15px 0 60px;
+		@media (min-width: @screen-md) {
+			margin: 55px 0 100px;
+		}
+	}
+
+	img {
+		margin-bottom: 35px;
+		@media (min-width: @screen-md) {
+			margin-bottom: 70px;
+		}
+	}
+
+	.b_content {
+		margin-top: 30px;
+	}
+
+	.b_icon-DropdownOhneKreis_L {
+		text-indent: 10px;
+		margin-right: 6px;
+		margin-top: -4px;
+		// WEVOSD-68
+		@media (max-width: @screen-xs-max) {
+			margin-left: -36px;
+		}
+	}
+	@media (min-width: @screen-md) {
+		.b_icon-DropdownOhneKreis_L {
+			font-size: 23px;
+			position: relative;
+			top: -3px;
+			text-indent: 14px;
+			margin-right: 14px;
+		}
+	}
+}
+
+// Link Module
+// -------------------------
+.b_ct-linkModule {
+	.b_is-singleLineLinkWithIcon {
+		line-height: 65px;
+		// WEVOSD-83
+		@media (max-width: @screen-xs-max) {
+			margin-left: 37px;
+			line-height: 2em;
+			padding-top: 16px;
+			padding-bottom: 17px;
+		}
+		// WEVOSD-83
+		@media (min-width: @screen-sm-min) {
+			line-height: 65px;
+		}
+
+	}
+	.b_icon-LinkOhneKreis_L {
+		font-size: 21px;
+		margin-right: 11px;
+//		margin-top: -3px;
+		// WEVOSD-83
+		@media (max-width: @screen-xs-max) {
+			margin-left: -36px;
+		}
+	}
+	@media (min-width: @screen-md) {
+		.b_icon-LinkOhneKreis_L {
+			font-size: 30px;
+			margin-right: 21px;
+		}
+	}
+
+	+ .b_ct-linkModule {
+		&:before {
+			content: "";
+			.dots(#fff);
+			width: 100%;
+			height: 2px;
+			display: block;
+		}
+	}
+}
+
+// Headline Module #WEVO-29
+// -------------------------
+.b_ct-headlineModule {
+	margin-top: 35px;
+	@media (min-width: @screen-lg) {
+		margin-top: 55px;
+	}
+
+		// adjust subline maring top just if headline is set
+	.b_headline + .b_subline {
+		margin-top: 9px;
+		@media (min-width: @screen-sm) {
+			margin-top: 18px;
+		}
+		margin-bottom: 0;
+	}
+}
+
+
+
+// Subpage Teaser #WEVO-30
+// -------------------------
+
+.b_ct-subpageTeaser {
+	@media (min-width: @screen-sm) {
+		margin-top: 10px;
+	}
+	@media (min-width: @screen-md) {
+		margin-top: -10px;
+	}
+		// teaser link
+		// wraps subline and image
+	a.b_teaserLink {
+		display: block;
+		margin-top: 40px;
+		@media (min-width: @screen-md) {
+			margin-top: 85px;
+		}
+	}
+
+		// image wrap
+	.b_imageWrap {
+		display: block;
+		background: @wevo-cyan;
+		@media (min-width: @screen-md) {
+			margin-top: 20px;
+		}
+	}
+
+	img {
+		.transition(opacity 300ms);
+	}
+
+	a.b_teaserLink:hover {
+		// reduce image opacity to show wevo cyan background
+		img {
+			opacity: .1;
+		}
+		// don't change icon color
+		i.b_icon:before {
+			color: #fff;
+		}
+	}
+
+	//@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+	//	.b_t4.b_btn {
+	//		font-size: 18px;
+	//	}
+	//}
+
+		// change font-size just for LG, now also for MD (see E-Mail 02.03.2016)
+	@media (min-width: @screen-md-min) {
+		.b_t4.b_btn {
+			.b_t5;
+		}
+	}
+
+	.b_is-btnList {
+		margin-top: 30px;
+	}
+
+	// Subpage Teaser with three items per row #WEVO-33
+	// -------------------------
+	&-threeItemsPerRow {
+		margin-top: 75px;
+		@media (min-width: @screen-md) {
+			margin-top: 130px;
+		}
+		border-top: 1px solid @wevo-gray-1;
+		.b_moduleHeadline {
+			padding-top: 8px;
+			margin-bottom: 0;
+		}
+		a.b_teaserLink {
+			margin-top: 45px;
+		}
+			// hide image for mobile view
+		@media (max-width: @screen-xs-max) {
+			.b_imageWrap {
+				display: none;
+			}
+		}
+		// adjust play icon size
+		.b_imageWrap i.b_icon {
+			font-size: 70px;
+			margin-left: -35px;
+			margin-top: -35px;
+		}
+	}
+}
+
+
+
+// Startpage Video Module
+// -------------------------
+
+.b_ct-startpageVideoModule {
+	img {
+		.b_state-no-mobile & {
+			display: none;
+		}
+	}
+	iframe {
+		.b_state-mobile & {
+			display: none;
+		}
+	}
+}
+
+// Video Module
+// -------------------------
+.b_ct-videoModule {
+	margin-top: 35px;
+	@media (min-width: @screen-md) {
+		margin-top: 70px;
+	}
+
+		// text after video module
+	.b_text {
+		margin-top: 20px;
+		@media (min-width: @screen-md) {
+			margin-top: 40px;
+		}
+	}
+}
+
+
+// Subpage Accordion Module
+// -------------------------
+
+.b_ct-subpageAccordionModule {
+	margin-top: 40px;
+	@media (min-width: @screen-md) {
+		margin-top: 85px;
+	}
+
+		// wraps subpage button and content
+	.b_item {
+		&.b_state-open {
+			.b_ct-subpage {
+				.scaleY(1);
+				height: auto;
+			}
+		}
+	}
+
+		// button
+	.b_btn {
+		.b_icon {
+			font-size: 16px;
+			margin-right: 12px;
+			margin-top: -3px;
+			@media (min-width: @screen-md) {
+				font-size: 19px;
+				margin-top: -5px;
+				margin-right: 24px;
+			}
+		}
+	}
+	.b_glossary .c_header.b_btn .b_icon {
+		margin-top: 0;
+	}
+
+		// accordion is open
+	.b_item > div:not(.b_ct-subpage) a.b_btn:not(.collapsed) {
+		background-color: @wevo-gray-3;
+		#gradient > .horizontal(@wevo-gray-3, @wevo-gray-7, 41%, 100%);
+		color: @wevo-cyan;
+	}
+
+	.b_ct-subpage {
+		overflow: hidden;
+	}
+}
+
+// WEVO-219 - workaround, that the sistepagemodule is not shown when the content is in an accordion
+.b_ct-subpage .b_sisterpagemodule {
+	display: none;
+	& + .b_item {
+		margin-top: 5px;
+	}
+}
+
+
+// Key Visaul #WEVO-41
+// -------------------------
+.b_ct-keyVisual {
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: #fff;
+	height: 265px;
+	padding-top: 40px;
+	@media (min-width: @screen-sm) {
+		padding-top: 25px;
+		height: 300px;
+	}
+	@media (min-width: @screen-md) {
+		height: 530px;
+		padding-top: 60px;
+	}
+
+	i.b_icon {
+		margin-top: 10px;
+		@media (min-width: @screen-sm) {
+			margin-top: 20px;
+		}
+		font-size: 90px;
+		@media (min-width: @screen-md) {
+			font-size: 160px;
+		}
+	}
+
+	.b_is-animatedIcon {
+		.size(90px,90px);
+		@media (min-width: @screen-md) {
+			.size(160px,160px);
+		}
+	}
+	// see WEVOSD-74
+	@media (max-width: @screen-xs-max) {
+		h3 {
+			font-size: 32px;
+		}
+	}
+}
+
+
+// List Module #WEVO-35
+// -------------------------
+// refactored on 06.12.2015 to use the same CE in TYPO3 as text/image
+.b_ct_textWithImage {
+	div + ul {
+		margin-top: 0px;
+	}
+	ul {
+		margin-top: 12px;
+		// let's use simple <ul>s, make it nice and clean for the HTML editor
+		.list-unstyled();
+		padding-left: 10px;
+		@media (min-width: @screen-md) {
+			padding-left: 20px;
+		}
+		li {
+			position: relative;
+			&:before {
+				content: "";
+				display: block;
+				.square(3px);
+				background-color: @wevo-blue-dark;
+				position: absolute;
+				left: -10px;
+				top: 11px;
+				@media (min-width: @screen-md) {
+					left: -20px;
+					top: 11px;
+					.square(5px);
+				}
+				.border-top-radius(50%);
+				.border-bottom-radius(50%);
+			}
+		}
+	}
+}
+
+// Text with Image
+// -------------------------
+
+.b_ct_textWithImage {
+	h4 {
+		text-transform: none;
+	}
+	img {
+		margin-bottom: 10px;
+		@media (min-width: @screen-sm) and (max-width: @screen-md-max) {
+			margin-bottom: 25px;
+		}
+	}
+	.b_t5 + div > img {
+		@media (min-width: @screen-sm) and (max-width: @screen-md-max) {
+			margin-top: 25px;
+		}
+	}
+}
+
+// Quote Module #WEVO-37
+// -------------------------
+.b_ct-quoteModule {
+	// reset bootstrap stylings
+	blockquote {
+		padding: 0;
+		margin: 0;
+		font-size: inherit;
+		border-left: inherit;
+		display: inherit;
+	}
+}
+
+// Glossary
+// -------------------------
+.b_glossary {
+	background-color: @wevo-yellow-light;
+	> ul {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+
+		// remove default btn background color
+	.b_btn {
+		.b_is-btnList-yellow & {
+			background-color: transparent !important;
+		}
+	}
+
+	.c_item {
+		position: relative;
+		overflow: hidden;
+		a.b_btn:not(.collapsed),
+		&:hover {
+			html.b_no-touch & {
+				color: @wevo-cyan;
+				.b_icon {
+					color: @wevo-cyan;
+				}
+			}
+		}
+		// remove default b_btn padding and set it to c_item
+		// so the padding can also be used for the collapse content
+		padding-right: 20px;
+		padding-left: 20px;
+		.b_btn {
+			padding-right: 0;
+			padding-left: 43px;
+		}
+	}
+
+	// toggle collapse content
+	.c_header {
+		padding-left: 43px;
+		.b_icon {
+			font-size: 33px;
+			position: absolute;
+			left: 20px;
+			top: 2px;
+		}
+	}
+
+	// collapsed content
+	.c_text {
+		position: relative;
+		line-height: 20px;
+		display: block;
+		margin-bottom: 65px;
+		color: @wevo-gray-7;
+		&:hover {
+			html.b_no-touch & {
+				color: @wevo-cyan;
+			}
+		}
+		// link arrow icon
+		.b_icon {
+			font-size: 21px;
+			position: absolute;
+			right: 0;
+			bottom: -30px;
+		}
+		// icon offset
+		span {
+			padding-left: 43px;
+			display: block;
+		}
+			// divider for collapsed items
+		&:after {
+			content: "";
+			position: relative;
+			bottom: -48px;
+			display: block;
+			.size(auto, 2px);
+			.dots(@wevo-gray-2);
+		}
+	}
+}
+
+
+// Product List #WEVO-45
+// -------------------------
+
+.b_ct-productListModule {
+	margin-top: 75px;
+	@media (min-width: @screen-md-min) {
+		margin-top: 130px;
+	}
+
+	//.c_mobileMaxWith {
+	//		// set max with for mobile view
+	//	@media (max-width: @screen-xs-max) {
+	//		max-width: 460px;
+	//		margin-left: auto;
+	//		margin-right: auto;
+	//	}
+	//}
+
+	//.c_colInnerWrap {
+	//	position: relative;
+	//	margin-top: 75px;
+	//	@media (min-width: @screen-md) {
+	//		margin-top: 130px;
+	//	}
+	//	padding-bottom: 35px;
+	//
+	//		// add left and right border with gradient
+	//	&:before,
+	//	&:after {
+	//		content: "";
+	//		position: absolute;
+	//		width: 1px;
+	//		height: 100%;
+	//		top: 0;
+	//		#gradient > .vertical(transparent, @wevo-gray-1);
+	//	}
+	//	&:before {
+	//		left: 0;
+	//	}
+	//	&:after {
+	//		right: 0;
+	//	}
+	//	border-bottom: 1px solid @wevo-gray-1;
+	//}
+
+	.c_icon-big {
+		font-size: 150px;
+		@media (min-width: @screen-md) {
+			font-size: 180px;
+		}
+	}
+
+	.c_headline {
+		//margin-top: 30px;
+		margin-top: 35px;
+		margin-bottom: 20px;
+	}
+
+	.c_subline {
+		margin-top: 0;
+		margin-bottom: 55px;
+	}
+	// see WEVOSD-93
+	.c_mobilelink {
+		i {
+			margin-top: 1px;
+			margin-right: 5px;
+		}
+	}
+
+	// list
+	//.c_list {
+	//	padding-right: 20px;
+	//	padding-left: 20px;
+	//	margin-top: 25px;
+	//	@media (min-width: @screen-md) {
+	//		margin-top: 75px;
+	//	}
+	//	> li {
+	//		margin-top: 10px;
+	//		@media (min-width: @screen-md) {
+	//			margin-top: 20px;
+	//		}
+	//	}
+	//	.b_icon {
+	//		font-size: 25px;
+	//	}
+	//	.media-left {
+	//		margin-right: 15px;
+	//	}
+	//	// item description
+	//	span {
+	//		color: @wevo-gray-1;
+	//	}
+	//}
+
+		// result icon Wrap
+	.c_resultIcon {
+		margin-top: 51px;
+
+		.c_resultArrow {
+			display: block;
+			font-size: 25px;
+			//margin-top: 20px;
+			//margin-bottom: 30px;
+			@media (min-width: @screen-md) {
+				font-size: 53px;
+				//margin-top: 40px;
+				//margin-bottom: 60px;
+			}
+		}
+
+		.c_headline {
+			margin-top: 15px;
+			margin-bottom: 0;
+			@media (min-width: @screen-md) {
+				margin-top: 30px;
+			}
+			+ p {
+				margin-top: 5px;
+				@media (min-width: @screen-md) {
+					margin-top: 15px;
+				}
+			}
+		}
+
+		.b_is-btnList {
+			margin-bottom: 0;
+			@media (min-width: @screen-lg-min) {
+				a.b_btn.b_t5 {
+					font-size: 20px;
+					> .b_icon-DropdownOhneKreis_L {
+						margin-top: -3px;
+					}
+				}
+			}
+		}
+
+		.b_btn {
+				// tab is open
+			&:not(.collapsed) {
+				background-color: @wevo-gray-3;
+				#gradient > .horizontal(@wevo-gray-3, @wevo-gray-7, 41%, 100%);
+				color: @wevo-cyan;
+				&:hover {
+					color: #fff;
+				}
+			}
+		}
+	}
+
+	.b_icon + .b_has-marginTop {
+		margin-top: 60px;
+	}
+}
+
+
+
+// Certificates module
+.b_ct-certificatesModule {
+	margin-top: 75px;
+	@media (min-width: @screen-md-min) {
+		margin-top: 120px;
+	}
+	.c_header {
+		padding-bottom: 25px;
+		@media (min-width: @screen-md-min) {
+			padding-bottom: 35px;
+		}
+	}
+	img {
+		width: 150px;
+		height: 150px;
+		@media (min-width: @screen-lg-min) {
+			width: 180px;
+			height: 180px;
+		}
+		display: inline-block;
+	}
+	.c_content {
+		margin-bottom: 25px;
+	}
+	.c_col {
+		margin-bottom: 40px;
+		@media (min-width: @screen-md-min) {
+			margin-bottom: 60px;
+		}
+	}
+	@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+		.c_col:nth-child(2n+1) {
+			clear: both;
+		}
+	}
+	@media (min-width: @screen-md-min) {
+		.c_col:nth-child(3n+1) {
+			clear: both;
+		}
+	}
+}
+
+
+
+// Attribute Teaser Module #WEVO-40 #WEVO-49
+// -------------------------
+
+.b_ct-attributeTeaserModule {
+
+	a:hover .c_headline {
+		color: @link-hover-color;
+	}
+
+		// show over for mobile
+		// first link click shows the overlay, second fires the link
+	.b_state-hoverActive {
+		.c_overlay {
+			opacity: 1;
+		}
+		.c_headline {
+			color: @wevo-cyan;
+		}
+	}
+
+		// adjust margin-top for viewport > md
+	@media (min-width: @screen-md) {
+		margin-top: 20px;
+	}
+
+		// wraps the whole teaser
+	.c_item {
+		margin-top: 40px;
+		@media (min-width: @screen-md) {
+			margin-top: 80px;
+		}
+			// if teaser has an link we need to change the c_headline color on hover
+		&.c_withLink:hover {
+			.c_headline {
+				html.b_no-touch & {
+					color: @wevo-cyan;
+				}
+			}
+		}
+	}
+
+		// default padding
+	.c_itemPadding {
+		padding: 12px 20px;
+		@media (min-width: @screen-md) {
+			padding: 24px 40px;
+		}
+	}
+
+		// different background colors for text teaser
+	.c_background {
+		&-lightGray .c_teaser {
+			background-color: @wevo-gray-5;
+			color: @wevo-blue-dark;
+		}
+		&-darkGray .c_teaser {
+			background-color: @wevo-gray-2;
+			color: #fff;
+		}
+		&-yellow .c_teaser {
+			background-color: @wevo-yellow;
+			color: @wevo-blue-dark;
+		}
+		&-darkBlue .c_teaser {
+			background-color: @wevo-blue-dark;
+			color: #fff;
+		}
+	}
+
+		// headline
+	.c_headline {
+		margin-bottom: 10px;
+		line-height: 24px;
+		min-height: 24px;
+		@media (min-width: @screen-md) {
+			margin-bottom: 20px;
+			line-height: 43px;
+			min-height: 43px;
+		}
+		&.c_indentText {
+			// see WEVOSD-76
+			margin-left: 34px;
+			position: relative;
+			.b_icon {
+				left: -34px;
+				position: absolute;
+				top: 5px;
+			}
+			@media (min-width: @screen-md) {
+				margin-left: 55px;
+				.b_icon {
+					left: -55px;
+				}
+			}
+		}
+	}
+
+		// headline icon
+	.b_icon {
+		font-size: 24px;
+	    margin-top: -6px;
+	    margin-right: 10px;
+		@media (min-width: @screen-md) {
+			font-size: 42px;
+			margin-right: @grid-gutter-width;
+		}
+	}
+
+		// teaser
+	.c_teaser {
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		.b_t1;
+		@media (max-width: @screen-md-max) {
+			//font-size: 40px;
+			//line-height: 45px;
+
+			// see WEVOSD-75
+			font-size: 25px;
+			line-height: 30px;
+		}
+		&.c_teaserWithSmallText {
+			.b_t4;
+		}
+	}
+
+		// overlay
+	.c_overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: @wevo-cyan-transparent;
+		opacity: 0;
+		.transition(opacity 300ms);
+		color: #fff;
+		a {
+			color: #fff;
+		}
+
+		&:before {
+			font-family: "b_icon";
+			position: absolute;
+			bottom: 20px;
+			left: 20px;
+			@media (min-width: @screen-md) {
+				bottom: 24px;
+				left: 40px;
+			}
+		}
+		.b_icon-LinkOhneKreis_L();
+	}
+
+		// show overlay on hover
+	.c_item:hover .c_overlay {
+		html.b_no-touch & {
+			opacity: .9;
+		}
+	}
+}
+
+// Two Column Text Module #WEVO-50
+// -------------------------
+
+.b_ct-twoColumnTextModule {
+	.c_moduleHeadline {
+		font-size: 16px;
+		line-height: 1em;
+		&.b_has-dividerTop {
+			margin-top: 60px;
+			padding-top: 15px;
+			margin-bottom: 25px;
+			&.b_is-dropdown {
+
+			}
+			@media (min-width: @screen-md) {
+				margin-top: 112px;
+				margin-bottom: 45px;
+			}
+		}
+	}
+	.c_headline {
+		margin-top: 0;
+		// see #WEVOSD-176
+		margin-top: -6px;
+		// see #WEVOSD-61
+		@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+			margin-top: -4px;
+		}
+	}
+	.c_subline {
+		@media (min-width: @screen-md) {
+			margin-top: -10px;
+		}
+	}
+	.b_has-dividerTop {
+		@media (min-width: @screen-md) {
+			margin-top: 75px;
+			padding-top: 15px;
+		}
+	}
+	// see WEVOSD-78
+	//ul {
+	//	padding-left: 18px;
+	//}
+
+	// see WEVOSD-107
+	ul {
+		&:extend(.b_ct_textWithImage ul all);
+		margin-top: 0;
+		li:before {
+			background-color: @text-color;
+		}
+	}
+	.b_text-accordion-item-content {
+		&-inner {
+			margin-bottom: 40px;
+			@media (min-width: @screen-md) {
+				margin-bottom: 85px;
+			}
+		}
+	}
+
+}
+
+
+// 404
+// -------------------------
+
+.b_ct-404 {
+	margin-top: 50px;
+	@media (min-width: @screen-md) {
+		margin-top: 100px;
+	}
+
+	.b_z1 {
+		line-height: 1em;
+	}
+
+	.btn {
+		margin-top: 20px;
+	}
+}
+
+
+// Switch Image Module, #WEVO-43
+// -------------------------
+
+.b_ct-switchImageModule {
+
+	.b_t1 {
+		margin-top: 10px;
+		margin-bottom: 0;
+	}
+	.b_t5 {
+		margin-top: 0;
+	}
+
+	.c_sitebar.b_t5 {
+		@media (max-width: @screen-md-max) {
+			margin-top: 30px;
+		}
+	}
+
+		// link
+	.c_link {
+		display: block;
+		color: @wevo-blue-dark;
+		&:hover {
+			html.b_no-touch & {
+				color: @wevo-cyan;
+			}
+		}
+		&.b_state-active {
+			color: @wevo-cyan;
+		}
+	}
+
+	.c_switchImage {
+		position: relative;
+		img {
+			opacity: 0;
+			.transition(opacity 350ms);
+			&.b_state-active {
+				opacity: 1;
+				top: 0;
+			}
+			// WEVOSD-49 only set the not-first img to position:absolute for correct height of the whole element
+			+ img {
+				position: absolute;
+				top: 0;
+			}
+		}
+	}
+	
+	.c_toggleImageWrap {
+		position: relative;
+		display: block;
+		margin-top: 20px;
+		@media (min-width: @screen-md) {
+			margin-top: 40px;
+		}
+		&:before {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			font-size: 20px;
+			margin-left: -10px;
+			margin-top: -10px;
+			@media (min-width: @screen-sm) {
+				font-size: 40px;
+				margin-left: -20px;
+				margin-top: -20px;
+			}
+		}
+	}
+}
+
+
+// Timeline
+// -------------------------
+
+.b_ct-timelineModule {
+	position: relative;
+	overflow: hidden;
+	.btn {
+		.b_no-touch & {
+			display: none;
+		}
+		position: absolute;
+		top: 0;
+		height: 100%;
+		width: 75px;
+		background: rgba(255,255,255,0.9) !important;
+		padding: 0;
+		font-size: 30px;
+		border: none;
+		&[rel="left"] {
+			left: 0;
+		}
+		&[rel="right"] {
+			right: 0;
+		}
+		// see WEVOSD-106
+		&:focus,
+		&:hover,
+		&:active,
+		&:focus:active {
+			outline: none;
+			* {
+				outline: none;
+			}
+		}
+		&.disabled {
+			display: none;
+		}
+	}
+	&:hover .btn {
+		display: block;
+		&.disabled {
+			display: none;
+		}
+	}
+
+	div.b_timeline > object {
+		padding: 50px;
+		// #gradient > .horizontal(@wevo-yellow, @wevo-cyan);
+		#gradient > .horizontal(rgba(red(@wevo-yellow),green(@wevo-yellow),blue(@wevo-yellow),0.2), rgba(red(@wevo-cyan),green(@wevo-cyan),blue(@wevo-cyan),0.2));
+
+		width: auto !important;
+		height: 500px !important;
+		@media (min-width: @screen-lg-min) {
+			height: 860px !important;
+		}
+	}
+
+	// remove the element completely from touch devices
+	.b_state-mobile & {
+		display: none;
+	}
+}
+
+// Seach Results
+// -------------------------
+
+.b_ct-searchResults {
+
+	a {
+		color: #000;
+		&:hover {
+			color: @wevo-cyan;
+		}
+	}
+
+	margin-top: 30px;
+	@media (min-width: @screen-md) {
+		margin-top: 75px;
+	}
+
+	.c_resultCount {
+		margin-top: 20px;
+	}
+
+	.b_has-dividerTop {
+		// change default border color
+		border-color: rgba(0, 0, 0, .15);
+		margin-top: 45px;
+		padding-top: 10px;
+	}
+
+	.c_text {
+		margin-top: 13px;
+	}
+
+	span.c_highlight {
+		color: @wevo-cyan;
+	}
+
+	.c_pathToPage {
+		color: @wevo-gray-2;
+		margin-top: 8px;
+		// see #WEVOSD-31
+		a {
+			color: @wevo-gray-2;
+			&:hover {
+				color: @wevo-cyan;
+			}
+		}
+	}
+
+	ul.pagination {
+		margin-top: 10px;
+		i {
+			font-size: 16px;
+			margin-top: -4px;
+		}
+
+		a[aria-label="Previous"] .b_icon {
+			.rotate(180deg);
+		}
+	}
+}
+
+
+// hotspot element
+// -------------------------
+
+// fix hotspot element width and height
+.b_hotspot svg {
+	width: 100%;
+	height: 100%;
+}
+
+.b_mobileHotspotElement {
+	position: relative;
+	.c_mobileHotspot {
+		position: absolute;
+		z-index: 50;
+		background-color: @wevo-cyan;
+		.border-top-radius(50%);
+		.border-bottom-radius(50%);
+		height: 20px;
+		width: 20px;
+		margin-top: -10px;
+		margin-left: -10px;
+		text-align: center;
+		color: #fff;
+		line-height: 20px;
+		font-size: 14px;
+	}
+}
+
+.b_mobileHotspotElementLegend {
+	margin-top: 20px;
+	color: @text-color;
+}
+
+// No Result Block #WEVOSD-167
+// -------------------------
+// no results list
+.b_ct-searchResultsNoResult {
+	&:extend(.b_ct_textWithImage all);
+	ul li:before {
+		background-color: @gray-dark;
+	}
+}

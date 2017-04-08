@@ -1,0 +1,68 @@
+<f:section name="propertyitem">
+	<div class="row b_listItem">
+		<div class="col-xs-24
+			<f:switch expression="{color}">
+				<f:case value="cyan">c_productcolor-cyan</f:case>
+				<f:case value="yellow">c_productcolor-yellow</f:case>
+				<f:case value="orange">c_productcolor-orange</f:case>
+			</f:switch>
+		">
+			<f:link.typolink parameter="{link}" class="b_is-whiteLink">
+				<i class="b_icon {icon} pull-left"></i>
+				<div class="b_ct_description">
+					<p class="b_headline text-uppercase b_nohyphens"><f:format.raw>{text}</f:format.raw></p>
+					<p class="b_nohyphens"><f:format.raw>{linktext}</f:format.raw></p>
+				</div>
+			</f:link.typolink>
+		</div>
+	</div>
+</f:section>
+
+<f:section name="propertyitem-md">
+	<f:link.typolink parameter="{link}" class="b_listItem b_is-whiteLink">
+		<div class="row">
+			<div class="col-md-8 col-lg-6
+				<f:switch expression="{color}">
+					<f:case value="cyan">c_productcolor-cyan</f:case>
+					<f:case value="yellow">c_productcolor-yellow</f:case>
+					<f:case value="orange">c_productcolor-orange</f:case>
+				</f:switch>
+			">
+				<i class="b_icon {icon}"></i>
+			</div>
+			<div class="col-md-16 col-lg-16
+				<f:switch expression="{color}">
+					<f:case value="cyan">c_productcolor-cyan</f:case>
+					<f:case value="yellow">c_productcolor-yellow</f:case>
+					<f:case value="orange">c_productcolor-orange</f:case>
+				</f:switch>
+			">
+				<p class="b_headline text-uppercase b_nohyphens"><f:format.raw>{text}</f:format.raw></p>
+				<p class="c_center b_nohyphens"><f:format.raw>{linktext}</f:format.raw></p>
+			</div>
+		</div>
+	</f:link.typolink>
+</f:section>
+
+<f:section name="propertyitem-icons">
+	<div class="col-md-12 col-lg-8">
+		<f:link.typolink parameter="{link}" class="b_is-text-white b_listItem">
+			<f:if condition="{icon}">
+				<i class="b_icon bJS_animatedIcon b_is-animatedIcon" data-icon="{icon}"></i>
+			</f:if>
+			<p><f:format.raw>{text}</f:format.raw></p>
+		</f:link.typolink>
+	</div>
+</f:section>
+
+
+<f:section name="propertyitem-icons-xs">
+	<div class="col-xs-12 col-sm-6 col-md-8">
+		<f:link.typolink parameter="{link}" class="b_is-text-white b_listItem">
+			<f:if condition="{icon}">
+				<i class="b_icon bJS_animatedIcon b_is-animatedIcon" data-icon="{icon}"></i>
+			</f:if>
+			<p><f:format.raw>{text}</f:format.raw></p>
+		</f:link.typolink>
+	</div>
+</f:section>

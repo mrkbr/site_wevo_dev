@@ -1,0 +1,57 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="defaultLayout" />
+
+<f:section name="content">
+	<main class="b_ct_main">
+		<f:format.raw>{keyvisual}</f:format.raw>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-24">
+					<!--TYPO3SEARCH_begin-->
+					<f:format.raw>{content}</f:format.raw>
+					<!--TYPO3SEARCH_end-->
+				</div>
+			</div>
+		</div>
+		<f:if condition="{colPos3}">
+			<div class="b_is-backgroundYellow b_has-marginTop-70">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-16 b_t3 b_has-smallModulePadding b_has-paddingBottom-70">
+							<!--TYPO3SEARCH_begin-->
+							<f:format.raw>{colPos3}</f:format.raw>
+							<!--TYPO3SEARCH_end-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</f:if>
+		<f:if condition="{colPos4}">
+			<div class="b_is-backgroundDarkBlue b_is-text-white">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-24 b_t1 b_has-smallModulePadding b_has-paddingBottom-70">
+							<!--TYPO3SEARCH_begin-->
+							<f:format.raw>{colPos4}</f:format.raw>
+							<!--TYPO3SEARCH_end-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</f:if>
+		<f:if condition="{colPos5}">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-24 b_t3 b_has-smallModulePadding b_has-paddingBottom-70 b_is-text-darkBlue">
+						<!--TYPO3SEARCH_begin-->
+						<f:format.raw>{colPos5}</f:format.raw>
+						<!--TYPO3SEARCH_end-->
+					</div>
+				</div>
+			</div>
+		</f:if>
+	</main>
+</f:section>
+
+</html>

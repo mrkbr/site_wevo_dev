@@ -1,0 +1,49 @@
+{
+  "name": "b_dropdown",
+  "description": "Enhances HTML selects to be custom styleable and easier to handle.",
+  "homepage": "https://github.com/b13/b_dropdown",
+  "keywords": [
+    "dropdown",
+    "select",
+    "custom"
+  ],
+  "main": [
+    "dist/b_dropdown.min.js",
+    "dist/b_dropdown.min.css"
+  ],
+  "version": "1.0.0",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Benjamin Gröner",
+      "email": "groener@b13.de"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/b13/b_dropdown.git"
+  },
+  "dependencies": {
+    "bootstrap": ">= 2.3.1",
+    "jquery": ">= 1.11.2"
+  },
+  "ignore": [
+    "./Gruntfile.js",
+    "package.json",
+    "test/",
+    "tmp/"
+  ],
+  "devDependencies": {
+    "requirejs": "~2.1.15",
+    "bootstrap": "~3.3.2"
+  },
+  "_release": "1.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.0",
+    "commit": "e34f511d9666ce48060e92e68963be0572d768f4"
+  },
+  "_source": "https://github.com/b13/b_dropdown.git",
+  "_target": "~1.0.0",
+  "_originalSource": "b_dropdown"
+}

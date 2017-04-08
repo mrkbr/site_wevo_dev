@@ -1,0 +1,17 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:if condition="{data.header}">
+<f:render partial="wevo_header" arguments="{_all}" />
+</f:if>
+<div class="b_ct-videoModule bJS_videoModule">
+	<f:if condition="{data.wevo_videoid}">
+		<div class="b_ct_video b_ct-centeredIconOverlay embed-responsive embed-responsive-16by9">
+			<iframe class="bJS_video b_video" src="https://player.vimeo.com/video/{data.wevo_videoid}?autoplay=1" frameborder="0" height="600" width="1600"></iframe>
+		</div>
+	</f:if>
+	<f:if condition="{data.bodytext}">
+		<div class="b_text b_t3"><f:format.html>{data.bodytext}</f:format.html></div>
+	</f:if>
+</div>
+
+</html>

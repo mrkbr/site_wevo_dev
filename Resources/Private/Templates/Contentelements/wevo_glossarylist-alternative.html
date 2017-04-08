@@ -1,0 +1,10 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="b_item">
+	<div class="b_headline b_m1 b_is-text-cyan text-uppercase">{data.header}</div>
+	<ul class="list-unstyled b_is-btnList b_is-btnList-yellow b_is-btnList-withIconRight">
+	<f:comment><!-- lib.getInfoPageMenu returns <li> elements without a <ul> wrapper --></f:comment>
+	<f:cObject typoscriptObjectPath="lib.getInfoPageMenu" />
+
+	</ul>
+</div>
+</html>

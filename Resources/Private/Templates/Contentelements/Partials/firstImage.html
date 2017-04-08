@@ -1,0 +1,15 @@
+<f:section name="firstImage">
+<f:for each="{images}" as="file" iteration="itemIteration">
+	<f:if condition="{itemIteration.isFirst}">
+		<f:image src="{file.uid}" treatIdAsReference="1" class="{class}" width="{width}" height="{height}" />
+	</f:if>
+</f:for>
+</f:section>
+
+<f:section name="firstImageUrl">
+<f:for each="{images}" as="file" iteration="itemIteration">
+	<f:if condition="{itemIteration.isFirst}">
+		<f:uri.image src="{file.uid}" treatIdAsReference="1" width="{width}" height="{height}" />
+	</f:if>
+</f:for>
+</f:section>

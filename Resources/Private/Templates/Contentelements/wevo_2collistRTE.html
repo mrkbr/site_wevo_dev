@@ -1,0 +1,87 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:section name="listrow">
+	<f:if condition="{dropdown}">
+		<f:then>
+			<div class="row">
+				<div class="col-md-24">
+					<a class="b_text-accordion-item-header collapsed" role="button" data-toggle="collapse" href="#bJS_accordion{item.data.uid}" aria-expanded="false" aria-controls="bJS_accordion{data.uid}">
+						<div class="row">
+							<div class="col-md-12">
+								<h2 class="b_t1 text-left b_is-text-cyan c_headline">{item.data.header}</h2>
+								<f:if condition="{item.data.subheader}">
+									<p class="b_t5 b_is-text-cyan c_is-subline">{item.data.subheader}</p>
+								</f:if>
+							</div>
+							<div class="col-md-12">
+								<div class="b_has-lineheight-t1">
+									<i class="b_icon c_status"></i>
+									<span class="b_t5 text-uppercase">
+										<f:translate key="LLL:EXT:site_wevo/Resources/Private/Language/locallang.xml:detail" />
+									</span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-md-12 col-md-offset-12 b_t5">
+					<div class="collapse b_text-accordion-item-content" id="bJS_accordion{item.data.uid}">
+						<div class="b_text-accordion-item-content-inner">
+							<f:format.html>{item.data.bodytext}</f:format.html>
+						</div>
+					</div>
+				</div>
+			</div>
+		</f:then>
+		<f:else>
+			<div class="row">
+				<div class="col-md-10">
+					<h2 class="b_t1 text-left b_is-text-cyan c_headline">{item.data.header}</h2>
+					<f:if condition="{item.data.subheader}">
+						<p class="b_t5 b_is-text-cyan c_is-subline">{item.data.subheader}</p>
+					</f:if>
+				</div>
+				<div class="col-md-13 col-md-offset-1 b_t5">
+					<f:format.html>{item.data.bodytext}</f:format.html>
+				</div>
+			</div>
+		</f:else>
+	</f:if>
+</f:section>
+
+<div class="b_ct-twoColumnTextModule">
+	<f:if condition="{data.header}">
+		<h3 class="c_moduleHeadline text-uppercase b_is-text-cyan b_is-wevoLight b_has-dividerTop">{data.header}</h3>
+	</f:if>
+	<f:for each="{listitems}" as="item" iteration="itemIteration">
+		<f:if condition="{data.tx_b13ce_config}">
+			<f:then>
+				<div class="b_has-dropdownDividerTop">
+					<f:render section="listrow" arguments="{item: '{item}',dropdown: '{data.tx_b13ce_config}'}" />
+				</div>
+			</f:then>
+			<f:else>
+				<f:if condition="{itemIteration.isFirst}">
+					<f:then>
+						<f:if condition="{data.header}">
+							<f:then>
+								<f:render section="listrow" arguments="{item: '{item}',dropdown: '{data.tx_b13ce_config}'}" />
+							</f:then>
+							<f:else>
+								<div class="b_has-dividerTop">
+									<f:render section="listrow" arguments="{item: '{item}',dropdown: '{data.tx_b13ce_config}'}" />
+								</div>
+							</f:else>
+						</f:if>
+					</f:then>
+					<f:else>
+						<div class="b_has-dividerTop">
+							<f:render section="listrow" arguments="{item: '{item}',dropdown: '{data.tx_b13ce_config}'}" />
+						</div>
+					</f:else>
+				</f:if>
+			</f:else>
+		</f:if>
+	</f:for>
+</div>
+</html>

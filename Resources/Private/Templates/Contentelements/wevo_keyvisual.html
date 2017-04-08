@@ -1,0 +1,20 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="b_ct-keyVisual"
+	<f:for each="{thisimage}" as="file" iteration="itemIteration">
+		<f:if condition="{itemIteration.isFirst}">
+			style="background-image: url('{f:uri.image(src:'{file.uid}',treatIdAsReference:'1')}');"
+		</f:if>
+	</f:for>
+>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-24">
+				<h3><f:format.raw>{data.header}</f:format.raw></h3>
+				<f:if condition="{data.layout}">
+					<i class="b_icon bJS_animatedIcon b_is-animatedIcon" data-icon="{data.layout}"></i>
+				</f:if>
+			</div>
+		</div>
+	</div>
+</div>
+</html>

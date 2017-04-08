@@ -1,0 +1,34 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:comment>
+	<!--
+		Menu for Industry/Branch Overview
+	-->
+</f:comment>
+<ce:menu.directory pageUids="{pageUids}" as="pages" levelAs="level">
+	<f:if condition="{pages}">
+		<div class="b_ct-subpageTeaser">
+			<div class="row">
+				<f:for each="{pages}" as="page" iteration="counter">
+					<f:if condition="{counter.isOdd}">
+						<f:if condition="{counter.isFirst}"><f:then></f:then><f:else><div class="row"></f:else></f:if>
+					</f:if>
+					<div class="col-sm-12">
+						<f:link.page pageUid="{page.uid}" class="b_is-whiteLink b_teaserLink">
+							<p class="b_t3">{page.title}</p>
+							<span class="b_imageWrap b_ct-centeredIconOverlay">
+								<f:cObject typoscriptObjectPath="lib.getMediaForPage"
+										   data="{uid:'{page.uid}', height:'450c', width:'800c', alt:'{page.title}', class: 'img-responsive b_is-fullWidth'}" />
+								<i class="b_icon b_icon-Play_UL"></i>
+							</span>
+						</f:link.page>
+						<f:render partial="Menu/Type-11-Sub" arguments="{pageUids: {0: page.uid}}" />
+					</div>
+					<f:if condition="{counter.isEven}">
+						<f:if condition="{counter.isLast}"><f:then></f:then><f:else></div></f:else></f:if>
+					</f:if>
+				</f:for>
+			</div>
+		</div>
+	</f:if>
+</ce:menu.directory>
+</html>

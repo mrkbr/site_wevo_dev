@@ -1,0 +1,124 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<div class="b_ct_textWithImage b_ct-tableModule b_has-marginTop
+	<f:if condition="{data.layout}">b_ct-tableModule-4col-v2</f:if>
+	<f:if condition="{data.wevo_bodytext2}">
+		<f:else>hidden-xs</f:else>
+	</f:if>
+">
+	<h4 class="b_t3 b_is-text-WevoCyan b_headline b_has-dividerTop"><f:format.html>{data.header}</f:format.html></h4>
+
+	<f:render section="table" arguments="{_all}" />
+
+
+	<div class="row">
+		<div class="col-lg-16 b_m2">
+			<f:if condition="{listitems}">
+				<dl class="hidden-xs">
+				<f:for each="{listitems}" as="item" iteration="itemIteration">
+					<dt>{item.data.header}</dt>
+					<dd>{item.data.subheader}</dd>
+				</f:for>
+				</dl>
+			</f:if>
+
+			<f:if condition="{data.subheader}">
+				<h5 class="b_t5 text-uppercase b_is-text-WevoCyan">{data.subheader}</h5>
+			</f:if>
+
+			<f:format.html>{data.wevo_bodytext2}</f:format.html>
+
+		</div>
+	</div>
+
+</div>
+
+
+<f:section name="table">
+	<f:if condition="{table}">
+		<div class="table-responsive hidden-xs">
+			<table class="table b_table
+				<f:switch expression="{data.layout}">
+					<f:case value="1">b_table-4col</f:case>
+					<f:case value="2">b_table-4col-v2</f:case>
+					<f:case default="1">b_table-4col</f:case>
+				</f:switch>
+			b_m2">
+				<f:for each="{table}" as="row" iteration="rowIterator">
+
+					<f:if condition="{rowIterator.isFirst}">
+						<f:then>
+							<f:if condition="{data.table_header_position} == 1">
+								<f:then>
+									<thead>
+								</f:then>
+								<f:else>
+									<tbody>
+								</f:else>
+							</f:if>
+						</f:then>
+						<f:else>
+							<f:if condition="{rowIterator.isLast}">
+								<f:if condition="{data.table_tfoot}">
+									</tbody>
+									<tfoot>
+								</f:if>
+							</f:if>
+						</f:else>
+					</f:if>
+
+					<f:switch expression="{data.layout}">
+						<f:case value="1">
+							<tr>
+								<f:for each="{row}" as="cell" iteration="columnIterator">
+									<f:render partial="Table/Columns-4col" arguments="{_all}" />
+								</f:for>
+							</tr>
+						</f:case>
+
+						<f:case value="2">
+							<f:comment><!-- ATTENTION: the opening <tr> is left out intentionally, this is set within the partial as part of the first "column" --></f:comment>
+							<f:for each="{row}" as="cell" iteration="columnIterator">
+								<f:render partial="Table/Columns-4col-v2" arguments="{_all}" />
+							</f:for>
+							</tr>
+						</f:case>
+
+						<f:case default="1">
+							<tr>
+								<f:for each="{row}" as="cell" iteration="columnIterator">
+									<f:render partial="Table/Columns-4col" arguments="{_all}" />
+								</f:for>
+							</tr>
+						</f:case>
+					</f:switch>
+
+
+
+					<f:if condition="{rowIterator.isFirst}">
+						<f:then>
+							<f:if condition="{data.table_header_position} == 1">
+								</thead>
+								<tbody>
+							</f:if>
+						</f:then>
+						<f:else>
+							<f:if condition="{rowIterator.isLast}">
+								<f:if condition="{data.table_tfoot}">
+									<f:then>
+										</tfoot>
+									</f:then>
+									<f:else>
+										</tbody>
+									</f:else>
+								</f:if>
+							</f:if>
+						</f:else>
+					</f:if>
+
+				</f:for>
+			</table>
+		</div>
+	</f:if>
+</f:section>
+</html>

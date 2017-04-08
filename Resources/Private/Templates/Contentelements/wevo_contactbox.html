@@ -1,0 +1,14 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="b_item">
+	<div class="b_headline b_m1 b_is-text-cyan text-uppercase">{data.header}</div>
+	<p class="b_m2">
+		<f:format.nl2br>{data.bodytext}</f:format.nl2br>
+	</p>
+</div>
+<div class="b_item">
+	<div class="b_headline b_m1 b_is-text-cyan text-uppercase">{data.subheader}</div>
+	<p class="b_m2">
+		<f:link.typolink parameter="{contactemail}" class="b_is-grayLink">{contactemaillabel}</f:link.typolink>
+	</p>
+</div>
+</html>

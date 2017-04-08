@@ -1,0 +1,30 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="FullrowContentelement" />
+
+<f:section name="contentelement">
+	<div id="bJS_timelineModule" class="b_ct-timelineModule b_has-marginTop hidden-xs"
+	<f:for each="{files}" as="file" iteration="itemIteration">
+		<f:if condition="{itemIteration.isFirst}">
+			data-timelineUrl="{file.publicUrl}"
+		</f:if>
+	</f:for>
+	>
+<f:comment>
+	<!--
+		add the svg as img for now, see #WEVOSD-168
+	-->
+</f:comment>
+
+	<div id="bJS_timeline" class="b_timeline">
+		<f:for each="{files}" as="file" iteration="itemIteration">
+			<f:if condition="{itemIteration.isFirst}">
+				<object data="{file.publicUrl}" type="image/svg+xml"></object>
+			</f:if>
+		</f:for>
+	</div>
+	<button class="bJS_moveLeft btn btn-default b_is-rotated180deg disabled" rel="left"> <i class="b_icon b_icon-Dropdown_L"></i></button>
+	<button class="bJS_moveRight btn btn-default" rel="right"><i class="b_icon b_icon-Dropdown_L"></i></button>
+
+	</div>
+</f:section>

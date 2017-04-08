@@ -1,0 +1,30 @@
+{
+	"jsDir": "Resources/Private/JavaScript",
+	"lessDir": "Resources/Private/Less",
+	"jsDirPublic": "Resources/Public/JavaScript",
+	"cssDir": "Resources/Public/Css",
+	"less": {
+		"development": {
+			"files": {
+				"Resources/Public/Css/main.css": "Resources/Private/Less/main.less",
+				"Resources/Public/Css/rte.css" : "Resources/Private/Less/rte.less"
+			}
+		},
+		"production": {
+			"files": {
+				"Resources/Public/Css/main.css": "Resources/Private/Less/main.less",
+				"Resources/Public/Css/rte.css" : "Resources/Private/Less/rte.less"
+			}
+		}
+	},
+	"postcss": {
+		"autoprefixer": {
+			"browsers": "last 2 versions"
+		}
+	},
+	"webfont": {
+		"src"  : "Resources/Public/Assets/Icons/svg/*.svg",
+		"dest" : "Resources/Public/Assets/Fonts/b_icon",
+		"relativeFontPath" : "/typo3conf/ext/site_wevo/Resources/Public/Assets/Fonts/b_icon/"
+	}
+}

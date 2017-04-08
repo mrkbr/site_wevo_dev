@@ -1,0 +1,191 @@
+// header
+// -------------------------
+
+h1,
+.h1 {
+	font-family: 'wevoUltraLight';
+	line-height: 60px;
+	font-size: 60px;
+	@media (min-width: @screen-sm) {
+		line-height: 80px;
+		font-size: 90px;
+	}
+	@media (min-width: @screen-md) {
+		line-height: 135px;
+		font-size: 150px;
+	}
+	@media (min-width: @screen-lg) {
+		line-height: 175px;
+		font-size: 190px;
+	}
+}
+h2,
+.h2 {
+	font-family: 'wevoUltraLight';
+	line-height: 30px;
+	font-size: 40px;
+	text-align: center;
+	@media (min-width: @screen-sm) {
+		line-height: 1em;
+		font-size: 70px;
+	}
+	@media (min-width: @screen-md) {
+		line-height: 110px;
+		font-size: 100px;
+	}
+}
+h3,
+.h3 {
+	font-family: 'wevoUltraLight';
+	font-size: 40px;
+	line-height: 1em;
+	text-transform: uppercase;
+	@media (min-width: @screen-sm) {
+		line-height: 65px;
+		font-size: 70px;
+	}
+	@media (min-width: @screen-md) {
+		line-height: 90px;
+		font-size: 100px;
+	}
+}
+h4,
+.h4 {
+	font-family: 'wevoUltraLight';
+	line-height: 30px;
+	font-size: 30px;
+	text-transform: uppercase;
+	@media (min-width: @screen-sm) {
+		line-height: 60px;
+		font-size: 70px;
+	}
+	@media (min-width: @screen-md) {
+		line-height: 100px;
+		font-size: 100px;
+	}
+}
+
+.b_searchFont {
+	font-family: 'wevoLight';
+	font-size: 16px;
+	line-height: 26px;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+// text
+// -------------------------
+
+.b_t1 {
+	font-family: 'wevoUltraLight';
+	font-size: 33px;
+	line-height: 38px;
+	@media (min-width: @screen-md) {
+		font-size: 50px;
+		line-height: 58px;
+
+		// WEVOSD-177 special headline font size for module b_ct-twoColumnTextModule
+		#b_page-17 .b_ct-twoColumnTextModule h2&,
+		#b_page-20 .b_ct-twoColumnTextModule h2&,
+		#b_page-22 .b_ct-twoColumnTextModule h2&,
+		#b_page-67 .b_ct-twoColumnTextModule h2& {
+			font-size: 30px;
+			@media (min-width: @screen-lg) {
+				font-size: 50px;
+			}
+		}
+	}
+}
+.b_t2 {
+	font-family: 'wevoUltraLight';
+	font-size: 26px;
+	line-height: 32px;
+	@media (min-width: @screen-md) {
+		font-size: 40px;
+		line-height: 48px;
+	}
+}
+.b_t3 {
+  	font-family: 'wevoLight';
+  	font-size: 20px;
+	line-height: 24px;
+	@media (min-width: @screen-sm) {
+		line-height: 28px;
+	}
+	@media (min-width: @screen-md) {
+		font-size: 30px;
+		line-height: 38px;
+		font-family: 'wevoUltraLight';
+	}
+}
+.b_t4 {
+	font-family: 'wevoLight';
+	font-size: 16px;
+	line-height: 21px;
+	@media (min-width: @screen-md) {
+		font-size: 24px;
+		line-height: 32px;
+		font-family: 'wevoUltraLight';
+	}
+}
+.b_t5 {
+	font-family: 'wevoLight';
+	font-size: 16px;
+	line-height: 21px;
+	@media (min-width: @screen-sm) {
+		font-size: 20px;
+		line-height: 28px;
+	}
+	@media (min-width: @screen-md) {
+		font-size: 18px;
+		line-height: 26px;
+	}
+}
+// make sure a button with b_t5 inside the button list has the right font size 
+.b_is-btnList a.b_btn.b_t5 {
+	font-size: 16px;
+	@media (min-width: @screen-sm) {
+		font-size: 20px;
+	}
+	@media (min-width: @screen-md) {
+		font-size: 18px;
+	}
+}
+
+.b_z1 {
+	font-family: 'wevoUltraLight';
+	font-size: 100px;
+	line-height: 1.2em;
+	@media (min-width: @screen-md) {
+		font-size: 500px;
+	}
+}
+
+.b_m1 {
+	font-family: 'wevoLight';
+	font-size: 15px;
+}
+
+.b_m2 {
+	font-family: "Helvetica Neue Light", Helvetica, Arial, sans-serif;
+	font-size: 15px;
+	line-height: 20px;
+}
+
+.b_m3 {
+	font-family: 'wevoLight';
+	font-size: 20px;
+}
+
+p + p {
+	margin-top: 1em;
+}

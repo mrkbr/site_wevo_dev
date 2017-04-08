@@ -1,0 +1,30 @@
+{
+  "name": "wevo",
+  "version": "0.0.1",
+  "dependencies": {
+    "b_dropdown": "~1.0.0",
+    "bootstrap": "3.3.5",
+    "breakpointlistener": "v1.0.1",
+    "countUp.js": "1.5.3",
+    "hasFlash": "~1.0.0",
+    "headroom.js": "~0.7.0",
+    "isInViewport": "https://github.com/b13/js-isInViewport.git#v0.0.2",
+    "jquery": "2.1.4",
+    "js-isInViewport": "https://github.com/b13/js-isInViewport.git#v0.0.2",
+    "js-sliderWithProgressbar": "https://github.com/b13/js-sliderWithProgressbar.git#V0.5",
+    "requirejs": "~2.1.6",
+    "slick-carousel": "~1.4.1",
+    "underscore": "~1.8.2",
+    "vimeo-jquery-api": "0.10.1",
+    "vivus": "~0.2.1",
+    "raphael": "^2.2.0",
+    "paper": "^0.9.25",
+    "isotope": "^3.0.3"
+  },
+  "resolutions": {
+    "jquery": "~1.11.2",
+    "slick-carousel": "~1.5.5",
+    "underscore": "~1.8.2",
+    "js-sliderWithProgressbar": "V0.4"
+  }
+}

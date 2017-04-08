@@ -1,0 +1,48 @@
+<f:if condition="{data.header}">
+	<h4 class="b_t3 b_is-text-WevoCyan b_headline b_has-dividerTop">{data.header}</h4>
+</f:if>
+<div id="bJS_hotspot-{data.uid}" class="b_hotspot"></div>
+<script>
+	require(['main'], function(B) {
+		B.initHotspots({
+			elemSelector: '#bJS_hotspot-{data.uid}'
+			<f:render section="image" arguments="{_all}" />
+			, data: [
+			<f:for each="{listitems}" as="hotspot" iteration="hotspotId">
+				{f:if(condition:hotspotId.isFirst, else: ',')}
+			<f:render section="hotspot-item" arguments="{_all}" />
+			</f:for>
+			]
+		});
+	});
+</script>
+
+<f:section name="image">
+	<f:for each="{thisimage}" as="file" iteration="itemIteration">
+		<f:if condition="{itemIteration.isFirst}">
+			, img: "<f:uri.image src="{file.uid}" treatIdAsReference="1" />"
+		</f:if>
+	</f:for>
+</f:section>
+
+<f:section name="hotspot-item">
+	{ <f:comment>wake up, fluid!</f:comment>
+		id: {hotspotId.cycle}
+		, text: "{hotspot.data.header}"
+		, textratio: "{f:if(condition:'{hotspot.data.subheader}',then:'{hotspot.data.subheader}',else:'1')}"
+		, hotspot: { <f:comment>wake up, fluid!</f:comment>
+			x: {hotspot.hotspotxy.0}
+			, y: {hotspot.hotspotxy.1}
+		}
+		<f:if condition="{hotspot.hotspot2xy.0}">
+			, hotspot2: { <f:comment>wake up, fluid!</f:comment>
+				x: {hotspot.hotspot2xy.0}
+				, y: {hotspot.hotspot2xy.1}
+			}
+		</f:if>
+		, flag: { <f:comment>wake up, fluid!</f:comment>
+			x: {hotspot.flagxy.0}
+			, y: {hotspot.flagxy.1}
+		}
+	}
+</f:section>

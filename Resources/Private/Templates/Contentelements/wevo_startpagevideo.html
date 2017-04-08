@@ -1,0 +1,13 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="FullrowContentelement" />
+
+<f:section name="contentelement">
+	<div class="b_ct-startpageVideoModule embed-responsive embed-responsive-16by5838 b_hideForMobileBrowser hidden-xs">
+		<iframe src="https://player.vimeo.com/video/{data.subheader}?api=1&autopause=0&autoplay=0" frameborder="0" height="600" width="1600"></iframe>
+		<f:for each="{thisimage}" as="file" iteration="itemIteration">
+			<f:if condition="{itemIteration.isFirst}">{f:image(src:'{file.uid}',treatIdAsReference:'1',width:'1600',height:'700',class:'img-responsive b_is-fullWidth')}</f:if>
+		</f:for>
+	</div>
+</f:section>
+</html>

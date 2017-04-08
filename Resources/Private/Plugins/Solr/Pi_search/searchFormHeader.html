@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Template for the search form view for EXT:solr</title>
+</head>
+<body>
+
+<!-- ###SOLR_SEARCH### begin -->
+
+<!-- ###SOLR_SEARCH_FORM### begin -->
+###FORM.SUGGEST_URL###
+<form id="bJS_search" action="###FORM.ACTION###" method="get" accept-charset="###FORM.ACCEPT-CHARSET###" class="form form-inline">
+	<button type="submit" class="b_searchIcon b_is-iconBtn">
+		<i class="b_icon b_icon-LupeOhneKreis_L b_t4"></i>
+	</button>
+	<div class="form-group b_searchWrap b_searchFont text-lowercase">
+		<input type="hidden" name="id" value="###FORM.ACTION_ID###" />
+		<input type="hidden" name="###FORM.ACTION_LANGUAGE_PARAMETER###" value="###FORM.ACTION_LANGUAGE###" />
+		<input type="text" class="tx-solr-q form-control b_search bJS_searchInput b_searchFont" name="q" autocomplete="off" placeholder="###LLL:placeholder###">
+		###FORM.HIDDEN_PARAMETER_FIELDS###
+		<div class="bJS_searchAsYouType b_ct-searchAsYouType b_animate">
+		</div>
+	</div>
+</form>
+<!-- ###SOLR_SEARCH_FORM### end -->
+
+<!-- ###SOLR_SEARCH### end -->
+
+<!-- ###SOLR_SEARCH_ERROR### begin -->
+###LLL:searchFailed###
+<!-- ###SOLR_SEARCH_ERROR### end -->
+
+</body>
+</html>
